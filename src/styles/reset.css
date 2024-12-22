@@ -22,7 +22,8 @@ p,
 figure,
 blockquote,
 dl,
-dd {
+dd,
+ul {
   margin: 0;
 }
 
@@ -36,7 +37,6 @@ ol[role='list'] {
 body {
   min-height: 100vh;
   line-height: 1.5;
-  margin: 0;
 }
 
 /* Set shorter line heights on headings and interactive elements */

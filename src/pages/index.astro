@@ -1,12 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
-import BackToTop from "@utils/BackToTop.astro";
 // import { data } from "~/fake.json";
 import Workshops from "@components/Workshops.astro";
 import { cn } from "~/lib";
 import type { Workshop } from "~/lib";
 import { getFormattedDates } from "~/lib";
+import Navigation from "@utils/Navigation.astro";
 
 const res = await fetch(
   "https://script.googleusercontent.com/macros/echo?user_content_key=0MsFed7ZIug5VQ4rgEjm4JHFpyFFbEgPEijcDGPzylNz_23huVUqfARB4iDQ8r6_FYBCkqfXkOTrWY_7F5Nauk2ee-q2HaZ0m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNkug743QoVrUSwdfm4U_2RAVTqZdKfWqTLdNugdvPyulcVQL2FK0Elv0shRWv0RfAJp27BVirWAYn7jyVNbbCFL6ZS5Y-HecA&lib=M22tqyZQve7LsC61Wvqq5mL0EK-iT8Fdm"
@@ -34,41 +34,46 @@ const formattedDates = getFormattedDates(startDate, endDate);
     <h1>New Year<br />New Trick 25</h1>
     <h2>SCHEDULE</h2>
   </div>
-  {
-    formattedDates.map((date) => {
-      const schedule = data[date.split("/")[0]];
-      return (
-        <section class="schedule">
-          <h2 id={date.split("/")[0]} class="schedule-heading">
-            {date}
-          </h2>
-          <div class="schedule-content">
-            {schedule.times.map(([time, label]) => {
-              const isWorkshop = typeof label !== "string";
-              return (
-                <div
-                  class={cn(
-                    "round",
-                    !isWorkshop &&
-                      (label.includes("Lunch") || label.includes("Dinner")) &&
-                      "meal"
-                  )}
-                >
-                  <h3>{time.split("-").join(" - ")}</h3>
+  <main id="main">
+    {
+      formattedDates.map((date) => {
+        const day = date.split("/")[0];
+        const schedule = data[day];
+        return (
+          <section class="schedule" id={day}>
+            <h2 class="schedule-heading">{date}</h2>
+            <div class="schedule-content">
+              {schedule.times.map(([time, label]) => {
+                const isWorkshop = typeof label !== "string";
+                return (
+                  <div
+                    class={cn(
+                      "round",
+                      !isWorkshop &&
+                        (label.includes("Talent") ||
+                          label.includes("New Year")) &&
+                        "accent",
+                      !isWorkshop &&
+                        (label.includes("Lunch") || label.includes("Dinner")) &&
+                        "meal"
+                    )}
+                  >
+                    <h3>{time.split("-").join(" - ")}</h3>
 
-                  {!isWorkshop ? (
-                    <div class="label">{label}</div>
-                  ) : (
-                    <Workshops data={label} />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      );
-    })
-  }
+                    {!isWorkshop ? (
+                      <div class="label">{label}</div>
+                    ) : (
+                      <Workshops data={label} />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })
+    }
+  </main>
   <div class="footer">
     <p>See you next year!</p>
     <span>With love</span>
@@ -76,7 +81,9 @@ const formattedDates = getFormattedDates(startDate, endDate);
   </div>
   <section aria-label="Utilities">
     <!-- You could also add a theme switch here or anything considered a utility -->
-    <BackToTop />
+    <!-- <BackToTop /> -->
+
+    <Navigation />
   </section>
 </Layout>
 
@@ -184,19 +191,50 @@ const formattedDates = getFormattedDates(startDate, endDate);
     background: var(--color-red-100);
   }
 
-  section {
+  .accent {
+    background: var(--color-orange);
+  }
+
+  .schedule {
     margin: var(--space-3xl) 0;
   }
 </style>
 
 <script is:inline>
-  const today = new Date();
-  let dayOfMonth = today.getDate();
-  if (dayOfMonth < 6 || dayOfMonth > 27) {
-    document
-      .getElementById(String(dayOfMonth).padStart(2, "0"))
-      .scrollIntoView({
-        behavior: "smooth",
-      });
-  }
+  window.addEventListener("DOMContentLoaded", () => {
+    const today = new Date();
+    let dayOfMonth = today.getDate();
+    if (dayOfMonth < 6 || dayOfMonth > 27) {
+      document
+        .getElementById(String(dayOfMonth).padStart(2, "0"))
+        .scrollIntoView({
+          behavior: "smooth",
+        });
+    }
+
+    const menuElements = document.querySelectorAll(".nav-day");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute("id");
+          const menuElement = document.getElementById(`menu-${id}`);
+          if (entry.isIntersecting) {
+            menuElements.forEach((menuElement) => {
+              menuElement.classList.remove("active");
+            });
+            menuElement.classList.add("active");
+          } else {
+            menuElement.classList.remove("active");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Track all sections that have an `id` applied
+    document.querySelectorAll("section.schedule").forEach((section) => {
+      observer.observe(section);
+    });
+  });
 </script>

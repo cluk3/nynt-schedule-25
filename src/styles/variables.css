@@ -16,6 +16,7 @@
   --color-pink: #ffcaf7;
   --color-yellow: #ffe278;
   --color-purple: #d1cfff;
+  --color-orange: #ffe4d3;
 
   --color-bg: var(--color-white);
   --color-text: var(--color-red-dark);
@@ -46,4 +47,6 @@
 
   /* Other */
   --border-radius: 12px;
+
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }

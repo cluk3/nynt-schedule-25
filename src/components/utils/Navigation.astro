@@ -1,0 +1,80 @@
+---
+
+---
+
+<nav>
+  <ul>
+    <li><a class="nav-day" id="menu-28" href="#28">28</a></li>
+    <li><a class="nav-day" id="menu-29" href="#29">29</a></li>
+    <li><a class="nav-day" id="menu-30" href="#30">30</a></li>
+    <li><a class="nav-day" id="menu-31" href="#31">31</a></li>
+    <li><a class="nav-day" id="menu-01" href="#01">1</a></li>
+    <li><a class="nav-day" id="menu-02" href="#02">2</a></li>
+    <li><a class="nav-day" id="menu-03" href="#03">3</a></li>
+    <li><a class="nav-day" id="menu-04" href="#04">4</a></li>
+    <li><a class="nav-day" id="menu-05" href="#05">5</a></li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+    transition:
+      opacity 0.2s var(--ease-in-out),
+      transform 0.2s var(--ease-in-out);
+    &:not(:has(.active)):not(:has(a:focus-visible)) {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.8);
+    }
+  }
+
+  ul {
+    display: flex;
+    gap: var(--space-3xs);
+    padding: var(--space-2xs);
+    background: oklch(from var(--color-red-100) l c h / 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: var(--border-radius);
+    box-shadow: 0px 0px 10px 0px var(--color-neutral-dark);
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    width: min(9vw, 48px);
+    height: min(9vw, 48px);
+    display: grid;
+    place-items: center;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--color-red-400);
+    color: var(--color-red-900);
+    font-size: var(--step-0);
+    text-decoration: none;
+    outline: none;
+    background: var(--color-white);
+    transition:
+      background 0.2s var(--ease-in-out),
+      color 0.2s var(--ease-in-out),
+      transform 0.2s var(--ease-in-out);
+  }
+
+  a:hover {
+    transform: scale(1.1) translateY(-2px);
+  }
+
+  a.active {
+    background: var(--color-red-900);
+    color: var(--color-white);
+  }
+
+  a.nav-day:focus-visible {
+    outline: var(--outline-size) var(--outline-style) var(--color-red-400);
+    outline-offset: 1px;
+  }
+</style>
