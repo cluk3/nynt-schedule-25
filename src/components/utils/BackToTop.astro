@@ -1,10 +1,18 @@
 ---
-import { Image } from "astro:assets";
-import arrow from "@images/arrow-upward.svg";
+
 ---
 
 <a aria-label="Back to top" href="#28" id="back-to-top">
-  <Image alt="" src={arrow} />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="48"
+    viewBox="0 -960 960 960"
+    width="48"
+    fill="#fefefe"
+    ><path
+      d="M450-160v-526L202-438l-42-42 320-320 320 320-42 42-248-248v526h-60Z"
+    ></path></svg
+  >
 </a>
 
 <script is:inline>
