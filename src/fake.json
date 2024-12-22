@@ -1,0 +1,664 @@
+{
+  "data": {
+    "28": {
+      "times": [
+        ["15:00", "Welcome and Registrations"],
+        ["15:00-17:00", "JAM"],
+        ["17.15-17:30", "Workshop demos"],
+        [
+          "17:30-19:15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Miriam & Matteo ",
+              "name": " Jump-in-Pop or Walk-in-Transition",
+              "prereqs": " Nessuno"
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Fra & Lu ",
+              "name": "Side - Whip-pops",
+              "prereqs": "Solid Tarzan"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Jessica & Cuz",
+              "name": " Front tuck",
+              "prereqs": " Castaway with ninja spotter, perfect straight throw am-am"
+            }
+          ]
+        ],
+        ["18:15-19:15", "Jam / Swiming pool"],
+        ["19:15-20:30", "Dinner Break"],
+        ["21:00+", "Jam"]
+      ]
+    },
+    "29": {
+      "times": [
+        ["8:00-9:00", "personal warm up (yoga/handstand/cardio)"],
+        ["9:00-9:15", "Workshop demos"],
+        [
+          "9:15-11:00",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Miriam & Francesco bonaldo",
+              "name": " Soundtrack pop flow ",
+              "prereqs": "nessuno"
+            },
+            {
+              "level": "Intermediate plus",
+              "teachers": "Erika & Mathias",
+              "name": "Easy icarian throws ",
+              "prereqs": "experience with pos and/or basic icarians "
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Tania & Luca",
+              "name": "Rev Full Mortalito",
+              "prereqs": " solid tarzan and some experience with mortalito"
+            },
+            {
+              "level": "Standing",
+              "teachers": "Lu & Luchino",
+              "name": " Intro to H2H ",
+              "prereqs": "F2H L-base & Standing"
+            }
+          ]
+        ],
+        ["11:00-11:15", "Workshop demos"],
+        [
+          "11:15-13:00",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Lorenzo & Emilia",
+              "name": "Jungle Flow",
+              "prereqs": ""
+            },
+            {
+              "level": "Intermediate plus",
+              "teachers": "Stefania & Abele",
+              "name": " Milan Fashion Trick",
+              "prereqs": " Experience in basic pops"
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Vale & Fra",
+              "name": "Antola Flow",
+              "prereqs": "Reverse star experince"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Jessica & Cuz",
+              "name": " Reverse Arabian ",
+              "prereqs": " Exp.front saltos, front tuck with ninja spotter"
+            }
+          ]
+        ],
+        ["13:00-14:30", "Lunch Break"],
+        ["16:15-16:30", "Workshop demo"],
+        [
+          "16:30-18.15",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Carla & Stefano",
+              "name": "Road to にんじゃ (Ninja) and beyond",
+              "prereqs": ""
+            },
+            {
+              "level": "Intermediate plus",
+              "teachers": "Cate & Ian",
+              "name": "Swan lake flow",
+              "prereqs": " ballerina and experience in whips"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Elena & Marco",
+              "name": "Martini",
+              "prereqs": " Castaway"
+            },
+            {
+              "level": "Standing",
+              "teachers": "Fra & Luchino",
+              "name": "Cool transition 😎",
+              "prereqs": "F2H L-base & Standing"
+            }
+          ]
+        ],
+        ["18:15-19:15", "Prep talent / Jam / Swiming pool"],
+        ["19:15-20:30", ""],
+        ["21:00+", "Jam"]
+      ]
+    },
+    "30": {
+      "times": [
+        ["8:15-9:15", "personal warm up (yoga/handstand/cardio)"],
+        ["9:15-9:30", "Workshop demos"],
+        [
+          "9:30-11:15",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Lorenzo & Emilia",
+              "name": " From PickPoket to Ninja 6",
+              "prereqs": " "
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Vale & Fra",
+              "name": "Top moves creative flow",
+              "prereqs": "mono Reverse star,  solid Foot to hand"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Tania & Luca",
+              "name": "Full handspring",
+              "prereqs": " experience with handspring, solid am chair to bird Icarian ( no spotter )"
+            },
+            {
+              "level": "Standing",
+              "teachers": "Mareike & Wilko",
+              "name": "standing tempos",
+              "prereqs": "f2h, rf2h, h2h, rh2h"
+            }
+          ]
+        ],
+        ["11:20-11:30", "Workshop demos"],
+        [
+          "11:30-13:15",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Agos & Luchino",
+              "name": "Swapping is the Way",
+              "prereqs": "None"
+            },
+            {
+              "level": "Intermediate plus",
+              "teachers": "Matteo & Luca Scru",
+              "name": " Slackropop - Where bases dare",
+              "prereqs": "Solid reverse star, experience in basic pops"
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Stefania & Abele",
+              "name": " Rudol-flow",
+              "prereqs": " Solid ballerina and F2H"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Jessica & Cuz",
+              "name": " More than dolphin",
+              "prereqs": " Experience in back saltos (back tuck, martini) "
+            }
+          ]
+        ],
+        ["13:15-15:15", "Lunch Break"],
+        ["15:15-15:30", "Workshop demo"],
+        [
+          "15:30-17.15",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Fra&Vale",
+              "name": "many weapons",
+              "prereqs": ""
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Erika Mathias",
+              "name": "F2H journey",
+              "prereqs": "Some experience with F2H"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Fra & Lu ",
+              "name": "Mortalito & Full",
+              "prereqs": "Rising whip & Basic icarians"
+            },
+            {
+              "level": "Standing",
+              "teachers": "Mareike & Wilko",
+              "name": "Pitch",
+              "prereqs": "f2h and rf2h"
+            }
+          ]
+        ],
+        ["17:15-19:15", "Prep talent / Jam / Swiming pool"],
+        ["19:15-20:30", "Dinner Break"],
+        ["21:00+", "Jam"]
+      ]
+    },
+    "31": {
+      "times": [
+        ["8:15-9:15", "personal warm up (yoga/handstand/cardio)"],
+        ["9:15-9:30", "Workshop demos"],
+        [
+          "9:30-11:15",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Erika & Matthias",
+              "name": "L-base to standing FLow ",
+              "prereqs": ""
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Laura & Tim",
+              "name": "Egg Forbidden Whipop as peak theme of \nEGG FLOW ",
+              "prereqs": "Forbidden whip & some experience with whipop"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Giulia & Checco",
+              "name": "Cascade variations",
+              "prereqs": "Solid rev.star&star / solit strait throws"
+            },
+            {
+              "level": "Standing ",
+              "teachers": "Fra & Luchino",
+              "name": "Inlocate/Pachiska",
+              "prereqs": " experience H2H & F2H"
+            }
+          ]
+        ],
+        ["11:15-11:30", "Workshop demos"],
+        [
+          "11:30-13:15",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Lorenzo & Emilia",
+              "name": "Perla Nera",
+              "prereqs": ""
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Jenna & Andrea ",
+              "name": " Cartwheel pops",
+              "prereqs": "Solid Basic Icarians and W.M."
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Jessica & Cuz",
+              "name": " Whale Games ",
+              "prereqs": "courbette from rev star with ninja spotter "
+            },
+            {
+              "level": "Standing ",
+              "teachers": "Mareike & Wilko",
+              "name": "Dynamic trios",
+              "prereqs": "F2H"
+            }
+          ]
+        ],
+        ["13:15-15:15", "Lunch Break"],
+        ["15:15-15:30", "Workshop demo"],
+        [
+          "15:30-17.15",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Agos & Luchino",
+              "name": "Slack Acro",
+              "prereqs": "None"
+            },
+            {
+              "level": "Intermediate plus",
+              "teachers": "Elisa & Bagaz",
+              "name": "not the usual icarian machine",
+              "prereqs": "solid icarian straight throws"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Fra & Lu ",
+              "name": "Whicarian",
+              "prereqs": "Solid Tarzan & Basic icarians"
+            },
+            {
+              "level": "Standing ",
+              "teachers": "Mareike & Wilko",
+              "name": "Courbet",
+              "prereqs": "standing tempos"
+            }
+          ]
+        ],
+        ["17.15-17:30", "activities demo "],
+        ["17:30-19:15", "Cool activities / Jam / Swiming pool"],
+        ["19:15-20:30", "Dinner Break"],
+        ["21:00+", "Talent non Talent Show"]
+      ]
+    },
+    "01": {
+      "times": [
+        ["10:00-11:00", "YOGA Vale"],
+        ["11:00-11:15", "Workshop demos"],
+        ["11:15-13:00", "Teachers:"],
+        ["13:00-15:15", "Lunch Break"],
+        ["15:15-15:30", "Workshop demo"],
+        [
+          "15:30-17.15",
+          [
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Angelo & Sofia",
+              "name": " Jump on the line",
+              "prereqs": " "
+            },
+            {
+              "level": "Intermediate plus",
+              "teachers": "Katia & Ale",
+              "name": "Space shuttle flow",
+              "prereqs": " Solid Side Star and F2H"
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Elena & Lu",
+              "name": "Castaway variations",
+              "prereqs": "Castaway with spotters"
+            },
+            {
+              "level": "Standing ",
+              "teachers": "Mareike & Wilko",
+              "name": "Cascade",
+              "prereqs": "20 sec. stable H2H (no steps)"
+            }
+          ]
+        ],
+        ["17.15-17:30", "Workshop demos"],
+        ["17:30-19", "New Year Cerimony Games - Medtitation - Thay - Jam"],
+        ["19:15-20:30", "Dinner Break"],
+        ["21:00+", "Jam"]
+      ]
+    },
+    "02": {
+      "times": [
+        ["8:15-9:15", "personal warm up (yoga/handstand/cardio)"],
+        ["9:15-9:30", "Workshop demos"],
+        [
+          "9:30-11:15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Angelo & Sofia",
+              "name": " Acrodazia (flow)",
+              "prereqs": " "
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Anna & Pri",
+              "name": " Foot juggling sequence",
+              "prereqs": " Experience in basic icarians"
+            },
+            {
+              "level": "Standing ",
+              "teachers": "Mareike & Wilko",
+              "name": "Flowy Acro Movements",
+              "prereqs": "F2H - H2H"
+            }
+          ]
+        ],
+        ["11:15-11:30", "Workshop demos"],
+        [
+          "11:30-13:15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Luisa & Pierre-Luc",
+              "name": "Intro Poppy Flow (Ghiacciolo)",
+              "prereqs": " "
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Fra & Lu ",
+              "name": "Flow",
+              "prereqs": "Solid Basic Icarians & W.M."
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Giulia & Checco",
+              "name": "American to log 360",
+              "prereqs": " solid straight throws (american - american)\nexperience in log"
+            }
+          ]
+        ],
+        ["13:15-15:15", "Lunch Break"],
+        ["15:15-15:30", "Workshop demo"],
+        [
+          "15:30-17.15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Silvia Chiara Andrea",
+              "name": "RPG (Role-Playing-Game)",
+              "prereqs": " "
+            },
+            {
+              "level": "Intermediate plus",
+              "teachers": "Katia & Ale",
+              "name": "Mono Star Pop flow",
+              "prereqs": " Solid free Star"
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Elena & Mattia",
+              "name": " Icarian flow",
+              "prereqs": " Pop rev bird to star and handspring with light spotter"
+            }
+          ]
+        ],
+        ["17.15-17:30", "activities demo "],
+        ["17:30-19:15", "Cool activities / Jam / Swiming pool"],
+        ["19:15-20:30", "Dinner Break"],
+        ["21:00+", "Jam"]
+      ]
+    },
+    "03": {
+      "times": [
+        ["8:15-9:15", "personal warm up (yoga/handstand/cardio)"],
+        ["9:15-9:30", "Workshop demos"],
+        [
+          "9:30-11:15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Fra & Lu ",
+              "name": "Go with Flow",
+              "prereqs": ""
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Angelo & Sofia",
+              "name": " Three steps overhead",
+              "prereqs": "Experience in F2F and in Icarians"
+            },
+            {
+              "level": "Standing",
+              "teachers": "Francesco & Margherita",
+              "name": "Tempos",
+              "prereqs": "F2H- RF2H - 2 Hight"
+            }
+          ]
+        ],
+        ["11:15-11:30", "Workshop demos"],
+        [
+          "11:30-13:15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Vale & Fra",
+              "name": "Sinergy flow",
+              "prereqs": ""
+            },
+            {
+              "level": "Int.-Adv",
+              "teachers": "Katia & Ale",
+              "name": "Pachi Pop",
+              "prereqs": "Experience with Icarians"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Anna & Pri",
+              "name": " Reverse whip-pop sequence",
+              "prereqs": " Consistent reverse tarzan"
+            }
+          ]
+        ],
+        ["13:15-15:15", "Lunch Break"],
+        ["15:15-15:30", "Workshop demo"],
+        [
+          "15:30-17.15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Luisa & Pierre-Luc",
+              "name": "Switchy Dancy Flow (Get Dramatic!)",
+              "prereqs": ""
+            },
+            {
+              "level": "Intermediate plus",
+              "teachers": "Fra & Vale",
+              "name": "creative flow",
+              "prereqs": "looking for creativity"
+            },
+            {
+              "level": "Advanced",
+              "teachers": "Anna & Pri",
+              "name": "Unusual front tucks",
+              "prereqs": "Experience in icarians"
+            }
+          ]
+        ],
+        ["17.15-17:30", "activities demo "],
+        ["17:30-19:15", "Cool activities / Jam / Swiming pool"],
+        ["19:15-20:30", "Dinner Break"],
+        ["21:00+", "Jam"]
+      ]
+    },
+    "04": {
+      "times": [
+        ["8:15-9:00", "personal warm up (yoga/handstand/cardio)"],
+        ["9:00-9:15", "Workshop demos"],
+        [
+          "9:30-11:15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Luisa & Giampi",
+              "name": "Dive-in Dive-out (flow)",
+              "prereqs": " "
+            },
+            { "level": "", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Standing",
+              "teachers": "Margherita & Francesco ",
+              "name": "Catch the baby",
+              "prereqs": "F2H tempos & Back tuck"
+            }
+          ]
+        ],
+        ["11:15-11:30", "Workshop demos"],
+        [
+          "11:30-13:15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Fra & Lu",
+              "name": "Pop Rev Star & Rev H2H",
+              "prereqs": " "
+            },
+            { "level": "", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Advanced",
+              "teachers": "Laura & Tim",
+              "name": "Varial",
+              "prereqs": "Clean and solid Log 180 (belly + back)"
+            }
+          ]
+        ],
+        ["13:15-15:15", "Lunch Break"],
+        ["15:15-15:30", "Workshop demo"],
+        [
+          "15:30-17.15",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Erika & Mathias ",
+              "name": "Lifted harmony",
+              "prereqs": " "
+            },
+            { "level": "", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Advanced",
+              "teachers": "Anna & Pri",
+              "name": " No hands castaway",
+              "prereqs": " Castaway"
+            }
+          ]
+        ],
+        ["18:30-19:15", ""],
+        ["19:15-20:30", "Dinner Break"],
+        ["21:00+", "Jam"]
+      ]
+    },
+    "05": {
+      "times": [
+        ["8:15-9:00", "personal warm up (yoga/handstand/cardio)"],
+        ["9:00-9:15", "Workshop demos"],
+        [
+          "9:15-11:00",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Elena B & Marco T",
+              "name": "Christmas tree Flow",
+              "prereqs": " "
+            },
+            { "level": "", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Standing",
+              "teachers": "Margherita & Francesco ",
+              "name": "Entrances in RH2H",
+              "prereqs": "Standing H2H & L-base RH2H"
+            }
+          ]
+        ],
+        ["11:00-11:15", "Workshop demos"],
+        [
+          "11:15-13:00",
+          [
+            { "level": "All Level", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Open Level/Intermediate ",
+              "teachers": "Laura & Tim",
+              "name": "Popping Machine",
+              "prereqs": " None"
+            },
+            { "level": "", "teachers": "", "name": "", "prereqs": "" },
+            {
+              "level": "Advanced",
+              "teachers": "Anna & Pri",
+              "name": "Whip-pops",
+              "prereqs": "Tarzan to throne / reverse tarzan"
+            }
+          ]
+        ],
+        ["13:00-15:30", "Closing Circle & Lunch Break"],
+        ["15:30-17:30", "JAM"]
+      ]
+    }
+  }
+}

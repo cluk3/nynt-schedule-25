@@ -3,14 +3,27 @@ import { Image } from "astro:assets";
 import arrow from "@images/arrow-upward.svg";
 ---
 
-<a aria-label="Back to top" href="#start" id="back-to-top">
+<a aria-label="Back to top" href="#28" id="back-to-top">
   <Image alt="" src={arrow} />
 </a>
 
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    const backToTopLink = document.getElementById("back-to-top");
+    const today = new Date();
+    let dayOfMonth = today.getDate();
+    if (dayOfMonth > 5 && dayOfMonth < 28) {
+      dayOfMonth = 28;
+    }
+
+    backToTopLink.href = `#${String(dayOfMonth).padStart(2, "0")}`;
+  });
+</script>
+
 <style>
   a {
-    background: var(--color-green);
-    border-radius: var(--border-radius);
+    background: var(--color-red-900);
+    border-radius: 9999px;
     bottom: var(--space-xs);
     position: fixed;
     right: var(--space-xs);

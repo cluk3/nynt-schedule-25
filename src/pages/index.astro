@@ -1,16 +1,202 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
-import DeleteMe from "@components/DeleteMe.astro";
 import BackToTop from "@utils/BackToTop.astro";
+// import { data } from "~/fake.json";
+import Workshops from "@components/Workshops.astro";
+import { cn } from "~/lib";
+import type { Workshop } from "~/lib";
+import { getFormattedDates } from "~/lib";
+
+const res = await fetch(
+  "https://script.googleusercontent.com/macros/echo?user_content_key=0MsFed7ZIug5VQ4rgEjm4JHFpyFFbEgPEijcDGPzylNz_23huVUqfARB4iDQ8r6_FYBCkqfXkOTrWY_7F5Nauk2ee-q2HaZ0m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNkug743QoVrUSwdfm4U_2RAVTqZdKfWqTLdNugdvPyulcVQL2FK0Elv0shRWv0RfAJp27BVirWAYn7jyVNbbCFL6ZS5Y-HecA&lib=M22tqyZQve7LsC61Wvqq5mL0EK-iT8Fdm"
+);
+const {
+  data,
+}: {
+  data: Record<
+    string,
+    {
+      times: Array<[string, string | Array<Workshop>]>;
+    }
+  >;
+} = await res.json();
+
+const startDate = "28-12-2024";
+const endDate = "05-01-2025";
+const formattedDates = getFormattedDates(startDate, endDate);
 ---
 
-<Layout title="Astronaut - Astro starter template">
+<Layout title="NYNT Schedule 24/25">
   <SkipLink />
   <div class="sr-only" id="start"></div>
-  <DeleteMe />
+  <div class="hero">
+    <h1>New Year<br />New Trick 25</h1>
+    <h2>SCHEDULE</h2>
+  </div>
+  {
+    formattedDates.map((date) => {
+      const schedule = data[date.split("/")[0]];
+      return (
+        <section class="schedule">
+          <h2 id={date.split("/")[0]} class="schedule-heading">
+            {date}
+          </h2>
+          <div class="schedule-content">
+            {schedule.times.map(([time, label]) => {
+              const isWorkshop = typeof label !== "string";
+              return (
+                <div
+                  class={cn(
+                    "round",
+                    !isWorkshop &&
+                      (label.includes("Lunch") || label.includes("Dinner")) &&
+                      "meal"
+                  )}
+                >
+                  <h3>{time}</h3>
+
+                  {!isWorkshop ? (
+                    <div class="label">{label}</div>
+                  ) : (
+                    <Workshops data={label} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      );
+    })
+  }
+  <div class="footer">
+    <p>See you next year!</p>
+    <span>With love</span>
+    <span>The AcroFusion team</span>
+  </div>
   <section aria-label="Utilities">
     <!-- You could also add a theme switch here or anything considered a utility -->
     <BackToTop />
   </section>
 </Layout>
+
+<style>
+  :root {
+    --time-width: 120px;
+  }
+
+  .footer,
+  .hero {
+    display: flex;
+    flex-direction: column;
+    padding-left: max(12vw, 40px);
+    padding-top: 12vh;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .footer {
+    background: var(--color-red-900);
+
+    p {
+      color: var(--color-white);
+      font-size: var(--step-2);
+      margin-bottom: var(--space-s);
+    }
+
+    span {
+      color: var(--color-white);
+      font-size: var(--step-2);
+    }
+  }
+
+  .hero {
+    overflow: clip;
+    position: relative;
+    --circle-size: 50vw;
+
+    h2 {
+      color: var(--color-white);
+      font-size: var(--step-0);
+      margin-top: var(--space-s);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: radial-gradient(
+        50% 50% at center,
+        var(--color-red-400) 0% 100%,
+        var(--color-red-900) 100%
+      );
+      background-size: var(--circle-size) var(--circle-size);
+      background-position: 0 calc(var(--circle-size) / 2);
+      z-index: -1;
+      user-select: none;
+      pointer-events: none;
+      transform: rotate(45deg);
+    }
+  }
+
+  .schedule-heading {
+    margin-left: calc(var(--space-s) * 2 + var(--time-width));
+  }
+  .schedule-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+    margin-top: var(--space-s);
+  }
+
+  .round {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-s);
+
+    padding: var(--space-s);
+    margin-right: var(--space-s);
+    border-radius: var(--border-radius);
+    background: var(--color-neutral-light);
+
+    h3 {
+      color: var(--color-neutral-dark);
+      width: var(--time-width);
+      font-size: var(--step--1);
+    }
+
+    label {
+      flex: 1;
+      font-size: var(--step-1);
+    }
+
+    &:has(.workshops) {
+      background: var(--color-white);
+      padding: 0 var(--space-s);
+    }
+  }
+
+  .meal {
+    background: var(--color-red-100);
+  }
+
+  section {
+    margin: var(--space-3xl) 0;
+  }
+</style>
+
+<script is:inline>
+  const today = new Date();
+  let dayOfMonth = today.getDate();
+  dayOfMonth = 28;
+  if (dayOfMonth < 6 || dayOfMonth > 27) {
+    document
+      .getElementById(String(dayOfMonth).padStart(2, "0"))
+      .scrollIntoView({
+        behavior: "smooth",
+      });
+  }
+</script>

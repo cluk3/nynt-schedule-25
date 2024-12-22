@@ -16,6 +16,22 @@
   src: url("/fonts/inter-v13-latin-regular.woff2") format("woff2");
 }
 
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/inter-v13-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/inter-v13-latin-regular.woff2") format("woff2");
+}
+
 /* Focus behaviour */
 
 :is(a, button, input, textarea, summary) {
@@ -47,23 +63,21 @@
 /* General */
 
 body {
-  background: var(--color-black);
+  background: var(--color-white);
   background-attachment: fixed;
   background-image: url("../images/nnnoise-dark.svg");
-  color: var(--color-grey-light);
-}
-
-h1,
-h2 {
-  color: var(--color-white);
-  font-family: "Anybody", sans-serif;
+  color: var(--color-black);
+  font-family: "Inter", sans-serif;
 }
 
 h1 {
   font-size: var(--step-5);
+  color: var(--color-white);
+  font-family: "Anybody", sans-serif;
 }
 h2 {
   font-size: var(--step-4);
+  color: var(--color-red-900);
 }
 
 a,
@@ -77,7 +91,7 @@ p {
 }
 
 code {
-  color: var(--color-yellow);
+  color: var(--color-red-900);
   font-weight: bold;
 }
 
@@ -88,51 +102,6 @@ code {
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
-
-/* Scheme preference */
-
-@media (prefers-color-scheme: light) {
-  body {
-    background: var(--color-white);
-    background-attachment: fixed;
-    background-image: url("../images/nnnoise-light.svg");
-    color: var(--color-black);
-  }
-
-  h1,
-  h2 {
-    color: var(--color-black);
-  }
-
-  code {
-    color: var(--color-green);
-  }
-
-  #back-to-top {
-    background: var(--color-orange);
-  }
-
-  #skip-link:focus,
-  #skip-link:focus-visible {
-    background: var(--color-blue);
-    color: var(--color-white);
-  }
-  #skip-link img {
-    filter: invert(0);
-  }
-}
-
-@media (prefers-contrast: more) {
-  body {
-    background: #000;
-    color: #fff;
-  }
-
-  h1,
-  h2 {
-    color: #fff;
-  }
 }
 
 /* Reduced motion preference */

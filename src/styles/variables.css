@@ -2,17 +2,27 @@
   color-scheme: light dark;
 
   /* Color */
-  --color-purple-light: #e8c3f8;
-  --color-purple-dark: purple;
   --color-black: #0c0e14;
-  --color-green: #2d6070;
-  --color-grey-dark: #17191e;
-  --color-grey-light: #bec0c8;
-  --color-orange: #fe7d33;
-  --color-white: #f5f8fa;
-  --color-yellow: #ffd493;
+  --color-white: #fff;
+  --color-neutral-light: #f5f5f5;
+  --color-neutral-dark: #636363;
+
+  --color-red-100: #ffe6e5;
+  --color-red-400: #c3374d;
+  --color-red-900: #ab1029;
+
+  --color-green: #99f5c7;
+  --color-blue: #c1e8ff;
+  --color-pink: #ffcaf7;
+  --color-yellow: #ffe278;
+  --color-purple: #d1cfff;
+
+  --color-bg: var(--color-white);
+  --color-text: var(--color-red-dark);
 
   /* Typography */
+  --step--4: clamp(0.512rem, 0.5532rem + -0.0531vw, 0.5425rem);
+  --step--3: clamp(0.64rem, 0.6549rem + -0.0192vw, 0.651rem);
   --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
   --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
   --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
@@ -20,9 +30,10 @@
   --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
   --step-3: clamp(1.9438rem, 1.7707rem + 0.8652vw, 2.4413rem);
   --step-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
-  --step-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
+  --step-5: clamp(4.0311rem, 3.36rem + 3.3555vw, 5.9605rem);
 
   /* Spacing */
+  --space-4xs: clamp(0.125rem, 0.125rem + 0vw, 0.125rem);
   --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
   --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
   --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
@@ -34,5 +45,5 @@
   --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
 
   /* Other */
-  --border-radius: 5px;
+  --border-radius: 12px;
 }

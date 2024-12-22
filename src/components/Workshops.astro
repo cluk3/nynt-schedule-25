@@ -1,0 +1,160 @@
+---
+import { cn } from "~/lib";
+import type { Workshop } from "~/lib";
+
+interface Props {
+  data: Array<Workshop>;
+}
+
+const { data } = Astro.props;
+
+function getLevelClass(_level: string) {
+  const level = _level.toLowerCase();
+  switch (level) {
+    case "open Level - intermediate":
+      return "open-level";
+    case "intermediate+":
+      return "int-plus";
+    case "intermediate - advanced":
+      return "int-adv";
+    case "advanced":
+      return "advanced";
+    case "standing":
+      return "standing";
+    default:
+      return "open-level";
+  }
+}
+---
+
+<div class="workshops">
+  {
+    data
+      .filter((workshop) => workshop.teachers)
+      .map((workshop) => {
+        return (
+          <div class={cn("workshop", getLevelClass(workshop.level))}>
+            <span class="level">{workshop.level}</span>
+            <div class="content">
+              <span class="teachers">{workshop.teachers}</span>
+              <h4>{workshop.name}</h4>
+              {workshop.prereqs.trim() && (
+                <p class="prereqs">
+                  prereq: <span>{workshop.prereqs}</span>
+                </p>
+              )}
+            </div>
+          </div>
+        );
+      })
+  }
+</div>
+
+<style>
+  .workshops {
+    display: grid;
+    flex: 1;
+    gap: var(--space-3xs);
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .workshop {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    gap: var(--space-4xs);
+
+    .content,
+    .level {
+      padding: var(--space-xs);
+      border-radius: var(--border-radius);
+      width: 100%;
+    }
+
+    .level {
+      text-align: center;
+      font-size: var(--step--3);
+      text-transform: uppercase;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .content {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 3;
+
+      padding: var(--space-xs);
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      gap: var(--space-3xs);
+
+      .teachers {
+        font-size: var(--step--2);
+        text-transform: uppercase;
+        letter-spacing: -1px;
+      }
+
+      .prereqs {
+        font-size: var(--step--2);
+        padding-top: var(--space-xs);
+        span {
+          text-transform: uppercase;
+        }
+      }
+
+      h4 {
+        font-size: var(--step--1);
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .open-level {
+    & .content,
+    & .level {
+      background: var(--color-green);
+    }
+
+    & .level {
+      color: oklch(from var(--color-green) calc(l - 0.6) c h);
+    }
+  }
+  .int-plus {
+    & .content,
+    & .level {
+      background: var(--color-blue);
+    }
+    & .level {
+      color: oklch(from var(--color-blue) calc(l - 0.6) c h);
+    }
+  }
+  .int-adv {
+    & .content,
+    & .level {
+      background: var(--color-pink);
+    }
+    & .level {
+      color: oklch(from var(--color-pink) calc(l - 0.6) c h);
+    }
+  }
+  .advanced {
+    & .content,
+    & .level {
+      background: var(--color-purple);
+    }
+    & .level {
+      color: oklch(from var(--color-purple) calc(l - 0.6) c h);
+    }
+  }
+  .standing {
+    & .content,
+    & .level {
+      background: var(--color-yellow);
+    }
+    & .level {
+      color: oklch(from var(--color-yellow) calc(l - 0.6) c h);
+    }
+  }
+</style>
