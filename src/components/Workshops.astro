@@ -9,7 +9,7 @@ interface Props {
 const { data } = Astro.props;
 
 function getLevelClass(_level: string) {
-  const level = _level.toLowerCase();
+  const level = _level.toLowerCase().trim();
   switch (level) {
     case "open Level - intermediate":
       return "open-level";

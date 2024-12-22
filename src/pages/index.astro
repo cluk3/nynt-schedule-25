@@ -54,7 +54,7 @@ const formattedDates = getFormattedDates(startDate, endDate);
                       "meal"
                   )}
                 >
-                  <h3>{time}</h3>
+                  <h3>{time.split("-").join(" - ")}</h3>
 
                   {!isWorkshop ? (
                     <div class="label">{label}</div>
@@ -82,7 +82,7 @@ const formattedDates = getFormattedDates(startDate, endDate);
 
 <style>
   :root {
-    --time-width: 120px;
+    --time-width: 100px;
   }
 
   .footer,
@@ -168,9 +168,10 @@ const formattedDates = getFormattedDates(startDate, endDate);
       font-size: var(--step--1);
     }
 
-    label {
+    .label {
       flex: 1;
-      font-size: var(--step-1);
+      font-size: var(--step-0);
+      padding: 0 var(--space-xs);
     }
 
     &:has(.workshops) {
@@ -191,7 +192,6 @@ const formattedDates = getFormattedDates(startDate, endDate);
 <script is:inline>
   const today = new Date();
   let dayOfMonth = today.getDate();
-  dayOfMonth = 28;
   if (dayOfMonth < 6 || dayOfMonth > 27) {
     document
       .getElementById(String(dayOfMonth).padStart(2, "0"))
