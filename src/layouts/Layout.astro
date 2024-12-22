@@ -10,13 +10,13 @@ export interface Props {
 const { title } = Astro.props;
 
 const metaData = {
-  keywords: "html, css, javascript, astro, static site generator",
-  description: "Astronaut - Starter template for static site generator Astro",
+  keywords: "acroyoga, nynt, schedule, new year new trick, acro fusion",
+  description: "The schedule for NYNT 24/25 acroyoga event",
   imageType: "image/png",
-  imageWidth: "1600",
-  imageHeight: "882",
+  imageWidth: "587",
+  imageHeight: "414",
   type: "website",
-  siteName: "Astronaut",
+  siteName: "NYNT Schedule 24/25",
   twitterCard: "summary_large_image",
 };
 
@@ -28,11 +28,11 @@ const socialImageURL = new URL("/seo.png", Astro.url);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="keywords" content={metaData.keywords} />
     <meta name="description" content={metaData.description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon-astronaut.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
     <meta property="og:url" content={canonicalURL} />
