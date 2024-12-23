@@ -78,9 +78,6 @@ const formattedDates = getFormattedDates(startDate, endDate);
   </main>
   <Footer />
   <section aria-label="Utilities">
-    <!-- You could also add a theme switch here or anything considered a utility -->
-    <!-- <BackToTop /> -->
-
     <Navigation />
   </section>
 </Layout>
@@ -88,6 +85,10 @@ const formattedDates = getFormattedDates(startDate, endDate);
 <style>
   :root {
     --time-width: 100px;
+  }
+
+  #main {
+    padding-bottom: var(--space-3xl);
   }
 
   .schedule {
