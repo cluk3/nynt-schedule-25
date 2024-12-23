@@ -8,6 +8,8 @@ interface Props {
 
 const { data } = Astro.props;
 
+const workshops = data.filter((workshop) => workshop.teachers);
+
 function getLevelClass(_level: string) {
   const level = _level.toLowerCase().trim();
   switch (level) {
@@ -27,26 +29,25 @@ function getLevelClass(_level: string) {
 }
 ---
 
-<div class="workshops">
+<div class="workshops" style={`--workshops-columns: ${workshops.length};`}>
   {
-    data
-      .filter((workshop) => workshop.teachers)
-      .map((workshop) => {
-        return (
-          <div class={cn("workshop", getLevelClass(workshop.level))}>
-            <span class="level">{workshop.level}</span>
-            <div class="content">
-              <span class="teachers">{workshop.teachers}</span>
-              <h4>{workshop.name}</h4>
-              {workshop.prereqs.trim() && (
-                <p class="prereqs">
-                  prereq: <span>{workshop.prereqs}</span>
-                </p>
-              )}
-            </div>
+    workshops.map((workshop) => {
+      return (
+        <div class={cn("workshop", getLevelClass(workshop.level))}>
+          <span class="level">{workshop.level}</span>
+          <div class="content">
+            <span class="teachers">{workshop.teachers}</span>
+            <h4>{workshop.name}</h4>
+            {workshop.prereqs.trim() && (
+              <div class="prereqs-container">
+                <p class="prereqs-label">prereq:</p>
+                <p class="prereqs">{workshop.prereqs}</p>
+              </div>
+            )}
           </div>
-        );
-      })
+        </div>
+      );
+    })
   }
 </div>
 
@@ -54,21 +55,25 @@ function getLevelClass(_level: string) {
   .workshops {
     display: grid;
     flex: 1;
-    gap: var(--space-3xs);
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--space-4xs);
+    grid-template-columns: repeat(var(--workshops-columns), 160px);
     grid-template-rows: repeat(4, auto);
+    overflow: auto;
+    scrollbar-width: none;
+    padding: var(--space-3xs) 0;
+    padding-top: 0;
   }
 
   .workshop {
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 4;
-    gap: var(--space-4xs);
+    gap: 2px;
 
     .content,
     .level {
       padding: var(--space-xs);
-      border-radius: var(--border-radius);
+      border-radius: 6px;
       width: 100%;
     }
 
@@ -77,10 +82,14 @@ function getLevelClass(_level: string) {
       justify-content: center;
       align-items: center;
       text-align: center;
-      font-size: var(--step--3);
       text-transform: uppercase;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
+
+      font-family: var(--fira);
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 13px;
     }
 
     .content {
@@ -91,24 +100,41 @@ function getLevelClass(_level: string) {
       padding: var(--space-xs);
       border-top-right-radius: 0;
       border-top-left-radius: 0;
-      gap: var(--space-3xs);
+      gap: 2px;
 
       .teachers {
-        font-size: var(--step--2);
+        font-family: var(--fira);
+        font-weight: 400;
+        font-size: 15px;
         text-transform: uppercase;
-        letter-spacing: -1px;
+        line-height: 16.5px;
+      }
+
+      .prereqs-container {
+        padding-top: var(--space-2xs);
+      }
+
+      .prereqs-label {
+        font-family: var(--fira);
+        font-weight: 400;
+        font-size: 12px;
+        font-style: italic;
       }
 
       .prereqs {
-        font-size: var(--step--2);
-        padding-top: var(--space-xs);
-        span {
-          text-transform: uppercase;
-        }
+        font-family: var(--fira);
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 13px;
+        font-style: italic;
+        text-transform: uppercase;
       }
 
       h4 {
-        font-size: var(--step--1);
+        font-size: 17px;
+        line-height: 17px;
+        font-weight: 700;
+        font-family: var(--fira);
         text-transform: uppercase;
       }
     }
@@ -121,7 +147,7 @@ function getLevelClass(_level: string) {
     }
 
     & .level {
-      color: oklch(from var(--color-green) calc(l - 0.6) c h);
+      color: #085b32;
     }
   }
   .int-plus {
@@ -130,7 +156,7 @@ function getLevelClass(_level: string) {
       background: var(--color-blue);
     }
     & .level {
-      color: oklch(from var(--color-blue) calc(l - 0.6) c h);
+      color: #1d5070;
     }
   }
   .int-adv {
@@ -139,7 +165,7 @@ function getLevelClass(_level: string) {
       background: var(--color-pink);
     }
     & .level {
-      color: oklch(from var(--color-pink) calc(l - 0.6) c h);
+      color: #793f70;
     }
   }
   .advanced {
@@ -148,7 +174,7 @@ function getLevelClass(_level: string) {
       background: var(--color-purple);
     }
     & .level {
-      color: oklch(from var(--color-purple) calc(l - 0.6) c h);
+      color: #2a285f;
     }
   }
   .standing {
@@ -157,7 +183,7 @@ function getLevelClass(_level: string) {
       background: var(--color-yellow);
     }
     & .level {
-      color: oklch(from var(--color-yellow) calc(l - 0.6) c h);
+      color: #725a03;
     }
   }
 </style>

@@ -9,7 +9,7 @@
 
   --color-red-100: #ffe6e5;
   --color-red-400: #c3374d;
-  --color-red-900: #ab1029;
+  --color-red-900: #ab0f29;
 
   --color-green: #99f5c7;
   --color-blue: #c1e8ff;
@@ -17,6 +17,8 @@
   --color-yellow: #ffe278;
   --color-purple: #d1cfff;
   --color-orange: #ffe4d3;
+
+  --color-sticker-star: rgba(255, 173, 227, 0.6);
 
   --color-bg: var(--color-white);
   --color-text: var(--color-red-dark);
@@ -34,19 +36,22 @@
   --step-5: clamp(4.0311rem, 3.36rem + 3.3555vw, 5.9605rem);
 
   /* Spacing */
-  --space-4xs: clamp(0.125rem, 0.125rem + 0vw, 0.125rem);
-  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
-  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
-  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
-  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
-  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
-  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
-  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
-  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
-  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+  --space-4xs: 4px;
+  --space-3xs: 8px;
+  --space-2xs: 12px;
+  --space-xs: 16px;
+  --space-s: 24px;
+  --space-m: 32px;
+  --space-l: 48px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+  --space-3xl: 128px;
 
   /* Other */
   --border-radius: 12px;
 
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --fira: "Fira Sans Extra Condensed", sans-serif;
+  --bricolage: "Bricolage Grotesque Variable", sans-serif;
 }

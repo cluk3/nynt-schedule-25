@@ -7,6 +7,8 @@ import { cn } from "~/lib";
 import type { Workshop } from "~/lib";
 import { getFormattedDates } from "~/lib";
 import Navigation from "@utils/Navigation.astro";
+import Hero from "@components/Hero.astro";
+import Footer from "~/components/Footer.astro";
 
 const res = await fetch(
   "https://script.googleusercontent.com/macros/echo?user_content_key=0MsFed7ZIug5VQ4rgEjm4JHFpyFFbEgPEijcDGPzylNz_23huVUqfARB4iDQ8r6_FYBCkqfXkOTrWY_7F5Nauk2ee-q2HaZ0m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNkug743QoVrUSwdfm4U_2RAVTqZdKfWqTLdNugdvPyulcVQL2FK0Elv0shRWv0RfAJp27BVirWAYn7jyVNbbCFL6ZS5Y-HecA&lib=M22tqyZQve7LsC61Wvqq5mL0EK-iT8Fdm"
@@ -30,10 +32,7 @@ const formattedDates = getFormattedDates(startDate, endDate);
 <Layout title="NYNT Schedule 24/25">
   <SkipLink />
   <div class="sr-only" id="start"></div>
-  <div class="hero">
-    <h1>New Year<br />New Trick 25</h1>
-    <h2>SCHEDULE</h2>
-  </div>
+  <Hero />
   <main id="main">
     {
       formattedDates.map((date) => {
@@ -45,26 +44,29 @@ const formattedDates = getFormattedDates(startDate, endDate);
             <div class="schedule-content">
               {schedule.times.map(([time, label]) => {
                 const isWorkshop = typeof label !== "string";
+
+                if (isWorkshop) {
+                  return (
+                    <>
+                      <p class="workshop-time">{time.split("-").join(" - ")}</p>
+                      <Workshops data={label} />
+                    </>
+                  );
+                }
+
                 return (
                   <div
                     class={cn(
                       "round",
-                      !isWorkshop &&
-                        (label.includes("Talent") ||
-                          label.includes("New Year")) &&
+                      (label.includes("Talent") ||
+                        label.includes("New Year")) &&
                         "accent",
-                      !isWorkshop &&
-                        (label.includes("Lunch") || label.includes("Dinner")) &&
+                      (label.includes("Lunch") || label.includes("Dinner")) &&
                         "meal"
                     )}
                   >
-                    <h3>{time.split("-").join(" - ")}</h3>
-
-                    {!isWorkshop ? (
-                      <div class="label">{label}</div>
-                    ) : (
-                      <Workshops data={label} />
-                    )}
+                    <p class="time">{time.split("-").join(" - ")}</p>
+                    <p class="label">{label}</p>
                   </div>
                 );
               })}
@@ -74,11 +76,7 @@ const formattedDates = getFormattedDates(startDate, endDate);
       })
     }
   </main>
-  <div class="footer">
-    <p>See you next year!</p>
-    <span>With love</span>
-    <span>The AcroFusion team</span>
-  </div>
+  <Footer />
   <section aria-label="Utilities">
     <!-- You could also add a theme switch here or anything considered a utility -->
     <!-- <BackToTop /> -->
@@ -92,93 +90,52 @@ const formattedDates = getFormattedDates(startDate, endDate);
     --time-width: 100px;
   }
 
-  .footer,
-  .hero {
-    display: flex;
-    flex-direction: column;
-    padding-left: max(12vw, 40px);
-    padding-top: 12vh;
-    width: 100%;
-    height: 100vh;
-  }
-
-  .footer {
-    background: var(--color-red-900);
-
-    p {
-      color: var(--color-white);
-      font-size: var(--step-2);
-      margin-bottom: var(--space-s);
-    }
-
-    span {
-      color: var(--color-white);
-      font-size: var(--step-2);
-    }
-  }
-
-  .hero {
-    overflow: clip;
-    position: relative;
-    --circle-size: 50vw;
-
-    h2 {
-      color: var(--color-white);
-      font-size: var(--step-0);
-      margin-top: var(--space-s);
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -100%;
-      left: -100%;
-      width: 300%;
-      height: 300%;
-      background: radial-gradient(
-        50% 50% at center,
-        var(--color-red-400) 0% 100%,
-        var(--color-red-900) 100%
-      );
-      background-size: var(--circle-size) var(--circle-size);
-      background-position: 0 calc(var(--circle-size) / 2);
-      z-index: -1;
-      user-select: none;
-      pointer-events: none;
-      transform: rotate(45deg);
-    }
+  .schedule {
+    padding: var(--space-l) var(--space-xs);
   }
 
   .schedule-heading {
-    margin-left: calc(var(--space-s) * 2 + var(--time-width));
+    font-family: "Bricolage Grotesque Variable";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    text-align: center;
+    color: var(--color-red-900);
   }
+
   .schedule-content {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3xs);
+    gap: var(--space-4xs);
     margin-top: var(--space-s);
+  }
+
+  .workshop-time,
+  .time {
+    color: var(--color-neutral-dark);
+    font-family: var(--fira);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .workshop-time {
+    padding: 6px 10px;
+    padding-bottom: 0;
   }
 
   .round {
     display: flex;
+    flex-direction: column;
     align-items: baseline;
-    gap: var(--space-s);
 
-    padding: var(--space-s);
-    margin-right: var(--space-s);
+    padding: 6px 10px;
     border-radius: var(--border-radius);
     background: var(--color-neutral-light);
 
-    h3 {
-      color: var(--color-neutral-dark);
-      width: var(--time-width);
-      font-size: var(--step--1);
-    }
-
     .label {
-      flex: 1;
-      font-size: var(--step-0);
-      padding: 0 var(--space-xs);
+      font-size: 15px;
+      font-weight: 500;
+      font-family: var(--fira);
     }
 
     &:has(.workshops) {
@@ -193,10 +150,25 @@ const formattedDates = getFormattedDates(startDate, endDate);
 
   .accent {
     background: var(--color-orange);
-  }
-
-  .schedule {
-    margin: var(--space-3xl) 0;
+    .label {
+      position: relative;
+      &::before {
+        content: url("/firework.svg");
+        position: absolute;
+        top: 50%;
+        transform: translateY(-48%);
+        right: calc(100% - 52px);
+      }
+      &:after {
+        content: url("/stars.svg");
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: calc(100% + var(--space-4xs));
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 </style>
 
@@ -219,17 +191,21 @@ const formattedDates = getFormattedDates(startDate, endDate);
         entries.forEach((entry) => {
           const id = entry.target.getAttribute("id");
           const menuElement = document.getElementById(`menu-${id}`);
+          console.log(entry);
           if (entry.isIntersecting) {
             menuElements.forEach((menuElement) => {
               menuElement.classList.remove("active");
             });
             menuElement.classList.add("active");
+            menuElement.scrollIntoView({
+              behavior: "smooth",
+            });
           } else {
             menuElement.classList.remove("active");
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: [0.2, 1] }
     );
 
     // Track all sections that have an `id` applied

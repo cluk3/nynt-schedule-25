@@ -1,0 +1,107 @@
+---
+import Logo from "./Logo.astro";
+import Star from "./Star.astro";
+---
+
+<div class="footer">
+  <div class="credits">
+    Made with <span style="color:#ffade3">❤</span> by<br /><span
+      style="color:#ffade3">Lisa Lorenzon</span
+    ><span> (design)</span><br /><span style="color:#ffade3">Luca Campli</span
+    ><span> (code)</span>
+  </div>
+  <Star class="star-1" />
+  <Star class="star-2" />
+  <Logo />
+  <div class="saluti">
+    <p>See you next year!</p>
+    <span>With love</span>
+    <span>The AcroFusion team</span>
+  </div>
+
+  <style>
+    .footer {
+      display: flex;
+      flex-direction: column;
+      padding-top: 30vh;
+      position: relative;
+      overflow: clip;
+
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      background-image: url("/acrofusi-footer.png");
+      /* background-size: contain; */
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-color: var(--color-red-900);
+
+      .credits {
+        position: absolute;
+        top: var(--space-xs);
+        font-family: var(--bricolage);
+        font-weight: 400;
+        font-size: 10px;
+        color: var(--color-white);
+      }
+
+      svg {
+        width: 120px;
+        height: auto;
+      }
+
+      .star-1 {
+        position: absolute;
+        top: -16px;
+        right: -16px;
+        width: 30%;
+        height: auto;
+      }
+      .star-2 {
+        position: absolute;
+        top: 10vh;
+        right: 30%;
+        width: 20%;
+        height: auto;
+      }
+
+      .saluti {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        &:before {
+          content: url("/lines.svg");
+          position: absolute;
+          bottom: -16px;
+          right: calc(100% + var(--space-3xs));
+        }
+
+        p {
+          font-family: var(--bricolage);
+          font-weight: 800;
+          color: var(--color-white);
+          font-size: 20px;
+          margin-bottom: var(--space-s);
+          margin-top: var(--space-l);
+        }
+
+        span {
+          font-family: var(--bricolage);
+          font-weight: 300;
+          color: var(--color-white);
+          font-size: 20px;
+          width: 100%;
+        }
+        span:nth-of-type(1):after {
+          content: url("/heart.svg");
+          padding-left: var(--space-3xs);
+          position: relative;
+          top: -3px;
+        }
+        span:nth-of-type(2) {
+          color: #ffade3;
+        }
+      }
+    }
+  </style>
+</div>

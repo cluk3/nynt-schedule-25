@@ -4,25 +4,64 @@
 
 <nav>
   <ul>
-    <li><a class="nav-day" id="menu-28" href="#28">28</a></li>
-    <li><a class="nav-day" id="menu-29" href="#29">29</a></li>
-    <li><a class="nav-day" id="menu-30" href="#30">30</a></li>
-    <li><a class="nav-day" id="menu-31" href="#31">31</a></li>
-    <li><a class="nav-day" id="menu-01" href="#01">1</a></li>
-    <li><a class="nav-day" id="menu-02" href="#02">2</a></li>
-    <li><a class="nav-day" id="menu-03" href="#03">3</a></li>
-    <li><a class="nav-day" id="menu-04" href="#04">4</a></li>
-    <li><a class="nav-day" id="menu-05" href="#05">5</a></li>
+    <li>
+      <a class="nav-day" id="menu-28" href="#28"
+        ><span class="day">28</span><span class="month">Dec</span></a
+      >
+    </li>
+    <li>
+      <a class="nav-day" id="menu-29" href="#29"
+        ><span class="day">29</span><span class="month">Dec</span></a
+      >
+    </li>
+    <li>
+      <a class="nav-day" id="menu-30" href="#30"
+        ><span class="day">30</span><span class="month">Dec</span></a
+      >
+    </li>
+    <li>
+      <a class="nav-day" id="menu-31" href="#31"
+        ><span class="day">31</span><span class="month">Dec</span></a
+      >
+    </li>
+    <li>
+      <a class="nav-day" id="menu-01" href="#01"
+        ><span class="day">1</span><span class="month">Jan</span></a
+      >
+    </li>
+    <li>
+      <a class="nav-day" id="menu-02" href="#02"
+        ><span class="day">2</span><span class="month">Jan</span></a
+      >
+    </li>
+    <li>
+      <a class="nav-day" id="menu-03" href="#03"
+        ><span class="day">3</span><span class="month">Jan</span></a
+      >
+    </li>
+    <li>
+      <a class="nav-day" id="menu-04" href="#04"
+        ><span class="day">4</span><span class="month">Jan</span></a
+      >
+    </li>
+    <li>
+      <a class="nav-day" id="menu-05" href="#05"
+        ><span class="day">5</span><span class="month">Jan</span></a
+      >
+    </li>
   </ul>
 </nav>
 
 <style>
   nav {
     position: fixed;
-    bottom: 16px;
+    bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
     opacity: 1;
+    display: flex;
+    justify-content: center;
+
     transition:
       opacity 0.2s var(--ease-in-out),
       transform 0.2s var(--ease-in-out);
@@ -33,13 +72,14 @@
   }
 
   ul {
+    flex: 1;
     display: flex;
-    gap: var(--space-3xs);
-    padding: var(--space-2xs);
-    background: oklch(from var(--color-red-100) l c h / 0.4);
+    overflow: auto;
+    scrollbar-width: none;
+    max-width: calc(100vw - 16px);
+    padding: 10px var(--space-3xs);
+    background: oklch(from var(--color-white) l c h / 0.6);
     backdrop-filter: blur(4px);
-    border-radius: var(--border-radius);
-    box-shadow: 0px 0px 10px 0px var(--color-neutral-dark);
   }
 
   li {
@@ -47,25 +87,38 @@
   }
 
   a {
-    width: min(9vw, 48px);
-    height: min(9vw, 48px);
-    display: grid;
-    place-items: center;
-    border-radius: var(--border-radius);
-    border: 2px solid var(--color-red-400);
+    width: min(10vw, 48px);
+    height: min(10vw, 48px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 9999px;
     color: var(--color-red-900);
     font-size: var(--step-0);
     text-decoration: none;
     outline: none;
-    background: var(--color-white);
+
     transition:
-      background 0.2s var(--ease-in-out),
+      background-color 0.2s var(--ease-in-out),
       color 0.2s var(--ease-in-out),
       transform 0.2s var(--ease-in-out);
-  }
 
-  a:hover {
-    transform: scale(1.1) translateY(-2px);
+    .day {
+      font-family: var(--bricolage);
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 18px;
+    }
+
+    .month {
+      font-family: var(--bricolage);
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 12px;
+    }
   }
 
   a.active {

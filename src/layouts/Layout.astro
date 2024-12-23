@@ -2,7 +2,12 @@
 import "@styles/reset.css";
 import "@styles/global.css";
 import "@styles/variables.css";
-
+import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource/fira-sans-extra-condensed/400.css";
+import "@fontsource/fira-sans-extra-condensed/500.css";
+import "@fontsource/fira-sans-extra-condensed/600.css";
+import "@fontsource/fira-sans-extra-condensed/700.css";
+import bricolageUrl from "@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url";
 export interface Props {
   title: string;
 }
@@ -34,6 +39,14 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta name="description" content={metaData.description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
     <link rel="canonical" href={canonicalURL} />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={bricolageUrl}
+      crossorigin="anonymous"
+    />
+
     <title>{title}</title>
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content={metaData.type} />
