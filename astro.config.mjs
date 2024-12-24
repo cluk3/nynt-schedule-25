@@ -23,14 +23,14 @@ export default defineConfig({
             type: "image/svg+xml",
           },
           {
-            src: "favicon.svg",
+            src: "512.png",
             sizes: "512x512",
-            type: "image/svg+xml",
+            type: "image/png",
           },
           {
-            src: "favicon.svg",
+            src: "512.png",
             sizes: "512x512",
-            type: "image/svg+xml",
+            type: "image/png",
             purpose: "any maskable",
           },
         ],
