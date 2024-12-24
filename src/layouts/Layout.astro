@@ -8,12 +8,10 @@ import "@fontsource/fira-sans-extra-condensed/500.css";
 import "@fontsource/fira-sans-extra-condensed/600.css";
 import "@fontsource/fira-sans-extra-condensed/700.css";
 import bricolageUrl from "@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url";
-import PostHog from "~/components/PostHog.astro";
+
 // @ts-expect-error
 import { pwaInfo } from "virtual:pwa-info";
 import ReloadPrompt from "@components/ReloadPrompt.astro";
-// @ts-expect-error
-import { pwaAssetsHead } from "virtual:pwa-assets/head";
 
 export interface Props {
   title: string;
@@ -72,7 +70,6 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta name="twitter:description" content={metaData.description} />
     <meta name="twitter:image" content={socialImageURL} />
     <meta name="twitter:image:alt" content={title} />
-    <PostHog />
     <script src="/src/pwa.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
