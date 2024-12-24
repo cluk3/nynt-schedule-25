@@ -44,13 +44,9 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta name="generator" content={Astro.generator} />
     <meta name="keywords" content={metaData.keywords} />
     <meta name="description" content={metaData.description} />
-    {
-      pwaAssetsHead.themeColor && (
-        <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />
-      )
-    }
-    {/*@ts-expect-error */}
-    {pwaAssetsHead.links.map((link) => <link {...link} />)}
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#ab0f29" />
+    <meta name="theme-color" content="#ab0f29" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
     <link
