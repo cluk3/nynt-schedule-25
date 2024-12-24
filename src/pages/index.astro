@@ -3,7 +3,6 @@ import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
 // import { data } from "~/fake.json";
 import Workshops from "@components/Workshops.astro";
-import { cn } from "~/lib";
 import type { Workshop } from "~/lib";
 import { getFormattedDates } from "~/lib";
 import Navigation from "@utils/Navigation.astro";
@@ -56,14 +55,15 @@ const formattedDates = getFormattedDates(startDate, endDate);
 
                 return (
                   <div
-                    class={cn(
-                      "round",
-                      (label.includes("Talent") ||
-                        label.includes("New Year")) &&
-                        "accent",
-                      (label.includes("Lunch") || label.includes("Dinner")) &&
-                        "meal"
-                    )}
+                    class:list={{
+                      round: true,
+                      accent:
+                        label.includes("Talent") || label.includes("New Year"),
+                      meal:
+                        label.includes("Lunch") ||
+                        label.includes("Dinner") ||
+                        label.includes("Breakfast"),
+                    }}
                   >
                     <p class="time">{time.split("-").join(" - ")}</p>
                     <p class="label">{label}</p>
@@ -130,7 +130,7 @@ const formattedDates = getFormattedDates(startDate, endDate);
     align-items: baseline;
 
     padding: 6px 10px;
-    border-radius: var(--border-radius);
+    border-radius: 6px;
     background: var(--color-neutral-light);
 
     .label {

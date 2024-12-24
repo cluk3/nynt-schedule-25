@@ -1,5 +1,4 @@
 ---
-import { cn } from "~/lib";
 import type { Workshop } from "~/lib";
 
 interface Props {
@@ -32,8 +31,9 @@ function getLevelClass(_level: string) {
 <div class="workshops" style={`--workshops-columns: ${workshops.length};`}>
   {
     workshops.map((workshop) => {
+      const levelClass = getLevelClass(workshop.level);
       return (
-        <div class={cn("workshop", getLevelClass(workshop.level))}>
+        <div class:list={{ workshop: true, [levelClass]: true }}>
           <span class="level">{workshop.level}</span>
           <div class="content">
             <span class="teachers">{workshop.teachers}</span>

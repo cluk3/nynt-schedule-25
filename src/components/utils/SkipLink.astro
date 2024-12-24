@@ -8,7 +8,7 @@
     height="36"
     viewBox="0 -960 960 960"
     width="36"
-    fill="#fefefe"
+    fill="currentColor"
     ><path
       d="M450-160v-526L202-438l-42-42 320-320 320 320-42 42-248-248v526h-60Z"
     ></path></svg
@@ -18,8 +18,8 @@
 <style>
   a {
     align-items: center;
-    background: var(--color-purple-light);
-    border-radius: var(--border-radius);
+    background: var(--color-white);
+    border-radius: 6px;
     color: var(--color-black);
     display: flex;
     height: 1px;
@@ -29,6 +29,7 @@
     overflow: hidden;
     top: auto;
     width: 1px;
+    z-index: 99;
   }
 
   a:focus,
@@ -41,9 +42,8 @@
     width: auto;
   }
 
-  img {
+  svg {
     margin-left: var(--space-xs);
     transform: rotate(180deg);
-    filter: invert(1);
   }
 </style>

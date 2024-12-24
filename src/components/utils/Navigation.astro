@@ -91,18 +91,13 @@
     width: min(10vw, 48px);
     height: min(10vw, 48px);
 
-    -webkit-tap-highlight-color: transparent;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    border-radius: 9999px;
+    border-radius: 50%;
     color: var(--color-red-900);
-    font-size: var(--step-0);
-    text-decoration: none;
-    outline: none;
 
     transition:
       background-color 0.2s var(--ease-in-out),
@@ -127,10 +122,5 @@
   a.active {
     background: var(--color-red-900);
     color: var(--color-white);
-  }
-
-  a.nav-day:focus-visible {
-    outline: var(--outline-size) var(--outline-style) var(--color-red-400);
-    outline-offset: 1px;
   }
 </style>

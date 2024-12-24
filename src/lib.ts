@@ -1,4 +1,3 @@
-export const cn = (...classes: unknown[]) => classes.filter(Boolean).join(" ");
 export function getFormattedDates(startDate: string, endDate: string) {
   // Parse the input dates
   const startParts = startDate.split("-");
