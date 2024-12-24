@@ -192,7 +192,6 @@ const formattedDates = getFormattedDates(startDate, endDate);
         entries.forEach((entry) => {
           const id = entry.target.getAttribute("id");
           const menuElement = document.getElementById(`menu-${id}`);
-          console.log(entry);
           if (entry.isIntersecting) {
             menuElements.forEach((menuElement) => {
               menuElement.classList.remove("active");
