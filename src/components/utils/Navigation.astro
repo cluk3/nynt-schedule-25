@@ -65,8 +65,10 @@
     transition:
       opacity 0.2s var(--ease-in-out),
       transform 0.2s var(--ease-in-out);
+
     &:not(:has(.active)):not(:has(a:focus-visible)) {
       opacity: 0;
+      pointer-events: none;
       transform: translateX(-50%) scale(0.8);
     }
   }
