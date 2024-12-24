@@ -1,3 +1,4 @@
+// @ts-expect-error
 import { registerSW } from "virtual:pwa-register";
 
 window.addEventListener("load", () => {
@@ -45,6 +46,7 @@ window.addEventListener("load", () => {
         "New content available, click on reload button to update";
       showPwaToast(false);
     },
+    // @ts-expect-error
     onRegisteredSW(swScriptUrl) {
       console.log("SW registered: ", swScriptUrl);
     },

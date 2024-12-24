@@ -9,9 +9,10 @@ import "@fontsource/fira-sans-extra-condensed/600.css";
 import "@fontsource/fira-sans-extra-condensed/700.css";
 import bricolageUrl from "@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url";
 import PostHog from "~/components/PostHog.astro";
-
+// @ts-expect-error
 import { pwaInfo } from "virtual:pwa-info";
 import ReloadPrompt from "@components/ReloadPrompt.astro";
+// @ts-expect-error
 import { pwaAssetsHead } from "virtual:pwa-assets/head";
 
 export interface Props {
@@ -48,6 +49,7 @@ const socialImageURL = new URL("/seo.png", Astro.url);
         <meta name="theme-color" content={pwaAssetsHead.themeColor.content} />
       )
     }
+    {/*@ts-expect-error */}
     {pwaAssetsHead.links.map((link) => <link {...link} />)}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
