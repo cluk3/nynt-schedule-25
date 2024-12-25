@@ -162,28 +162,28 @@ export default defineConfig({
         screenshots: [
           {
             src: "screenshot-1.png",
-            sizes: "778x1320",
+            sizes: "729x1320",
             type: "image/png",
             form_factor: "narrow",
             label: "Schedule",
           },
           {
             src: "screenshot-2.png",
-            sizes: "778x1320",
+            sizes: "729x1320",
             type: "image/png",
             form_factor: "narrow",
             label: "Schedule",
           },
           {
             src: "screenshot-1.png",
-            sizes: "778x1320",
+            sizes: "729x1320",
             type: "image/png",
             form_factor: "wide",
             label: "Schedule",
           },
           {
             src: "screenshot-2.png",
-            sizes: "778x1320",
+            sizes: "729x1320",
             type: "image/png",
             form_factor: "wide",
             label: "Schedule",
