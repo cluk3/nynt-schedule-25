@@ -15,6 +15,7 @@
     "@fontsource-variable/bricolage-grotesque": "^5.1.0",
     "@fontsource/fira-sans-extra-condensed": "^5.1.0",
     "astro": "^4.0.3",
+    "lenis": "^1.1.18",
     "open-props": "^1.7.9",
     "typescript": "^5.2.2"
   },
