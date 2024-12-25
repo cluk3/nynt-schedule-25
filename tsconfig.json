@@ -9,6 +9,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/components/utils/*"]
-    }
+    },
+    "types": ["vite-plugin-pwa/info", "vite-plugin-pwa/client"]
   }
 }

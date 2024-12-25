@@ -5,9 +5,7 @@ import Logo from "./Logo.astro";
 
 <div class="hero">
   <div class="hero-content">
-    <div class="logo">
-      <Logo />
-    </div>
+    <Logo />
 
     <div class="title">
       <Star class="star-top" />
@@ -104,6 +102,8 @@ import Logo from "./Logo.astro";
   }
 
   .hero {
+    --circles-position: 37% 56%;
+    --circles-size: 180vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,8 +114,8 @@ import Logo from "./Logo.astro";
 
     background-color: var(--color-red-900);
     background-image: url("/circlees.svg");
-    background-size: 180vh;
-    background-position: center;
+    background-size: var(--circles-size);
+    background-position: var(--circles-position);
     background-repeat: repeat;
 
     .hero-content {
@@ -156,10 +156,8 @@ import Logo from "./Logo.astro";
       left: 50%;
       transform: translateX(-50%);
 
-      svg {
-        width: 120px;
-        height: auto;
-      }
+      width: 120px;
+      height: auto;
     }
 
     .title {
@@ -167,14 +165,17 @@ import Logo from "./Logo.astro";
       width: 100%;
       padding: 0 var(--space-xs);
       position: relative;
-      margin-top: 20vh;
+      margin-top: 30vh;
 
       .star-top {
         position: absolute;
-        bottom: calc(100% + var(--space-xs));
+        bottom: calc(100% + var(--space-m));
         left: var(--space-xl);
         width: 20%;
         height: auto;
+        color: rgba(255, 173, 227, 0.6);
+        animation: var(--animation-blink);
+        animation-duration: 3s;
       }
       .star-bottom {
         position: absolute;
@@ -182,6 +183,10 @@ import Logo from "./Logo.astro";
         right: var(--space-xs);
         width: 40%;
         height: auto;
+        color: rgba(255, 173, 227, 0.6);
+        animation: var(--animation-blink);
+        animation-duration: 3s;
+        animation-delay: 1s;
       }
     }
 
@@ -224,11 +229,17 @@ import Logo from "./Logo.astro";
         background-repeat: no-repeat;
 
         mask-image: url(/circlees.svg);
-        mask-size: 180vh;
-        mask-position: center;
+        mask-size: var(--circles-size);
+        mask-position: var(--circles-position);
 
         user-select: none;
         pointer-events: none;
+      }
+    }
+
+    @media (max-width: 450px) {
+      &::before {
+        background-size: contain;
       }
     }
   }

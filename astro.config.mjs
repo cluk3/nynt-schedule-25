@@ -9,7 +9,6 @@ export default defineConfig({
       /* enable sw on development */
       base: "/",
       scope: "/",
-      includeAssets: ["favicon.svg"],
       registerType: "autoUpdate",
       manifest: {
         name: "NYNT 25 Schedule",
@@ -192,7 +191,6 @@ export default defineConfig({
       },
       workbox: {
         navigateFallback: "/",
-        globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
       },
       devOptions: {
         enabled: true,

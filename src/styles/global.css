@@ -1,3 +1,6 @@
+@import "open-props/animations";
+@import "open-props/easings";
+
 /* bricolage-grotesque-latin-wght-normal */
 @font-face {
   font-family: "Bricolage Grotesque Variable";

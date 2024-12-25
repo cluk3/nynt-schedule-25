@@ -1,9 +1,7 @@
-// @ts-expect-error
 import { registerSW } from "virtual:pwa-register";
 
 registerSW({
   immediate: true,
-  // @ts-expect-error
   onRegisteredSW(swScriptUrl) {
     console.log("SW registered: ", swScriptUrl);
   },

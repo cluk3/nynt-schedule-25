@@ -5,18 +5,44 @@ import Star from "./Star.astro";
 
 <div class="footer">
   <div class="credits">
-    Made with <span style="color:#ffade3">❤</span> by<br /><span
-      style="color:#ffade3">Lisa Lorenzon</span
-    ><span> (design)</span><br /><span style="color:#ffade3">Luca Campli</span
-    ><span> (code)</span>
+    Made with <span class="heart"
+      ><svg
+        width="12"
+        height="13"
+        viewBox="0 0 12 13"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.67693 1.38107C5.54814 2.01243 5.56729 2.01236 5.26118 1.20881C4.84027 0.0417551 3.36709 -0.340811 1.89392 0.32881C-0.841963 1.59152 -0.593302 6.27884 2.50609 10.9088C3.09918 11.7889 3.15658 14.295 6.23684 11.1765C7.92046 9.47378 10.4842 6.64231 11.1921 5.60918C13.5262 2.18454 10.4268 -0.723452 6.67693 1.38107ZM10.3312 3.21767C10.159 4.53778 5.43329 10.2008 4.13231 10.6409C3.78794 10.7557 2.29567 5.97269 2.06609 4.07862C1.75998 1.40013 3.09926 -0.26432 3.82627 1.91673C3.99846 2.45243 4.13231 3.21771 4.13231 3.63862C4.11318 5.03525 5.45248 5.09254 6.10297 3.71503C7.34655 1.05568 10.6564 0.692244 10.3312 3.21767Z"
+          fill="#FFADE3"></path>
+      </svg>
+    </span> by<br /><span style="color:#ffade3">Lisa Lorenzon</span><span>
+      (design)</span
+    ><br /><span style="color:#ffade3">Luca Campli</span><span> (code)</span>
   </div>
   <Star class="star-1" />
   <Star class="star-2" />
   <Logo />
   <div class="saluti">
     <p>See you next year!</p>
-    <span>With love</span>
-    <span>The AcroFusion team</span>
+    <div class="love">
+      <span>With love</span><span class="heart"
+        ><svg
+          width="12"
+          height="13"
+          viewBox="0 0 12 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.67693 1.38107C5.54814 2.01243 5.56729 2.01236 5.26118 1.20881C4.84027 0.0417551 3.36709 -0.340811 1.89392 0.32881C-0.841963 1.59152 -0.593302 6.27884 2.50609 10.9088C3.09918 11.7889 3.15658 14.295 6.23684 11.1765C7.92046 9.47378 10.4842 6.64231 11.1921 5.60918C13.5262 2.18454 10.4268 -0.723452 6.67693 1.38107ZM10.3312 3.21767C10.159 4.53778 5.43329 10.2008 4.13231 10.6409C3.78794 10.7557 2.29567 5.97269 2.06609 4.07862C1.75998 1.40013 3.09926 -0.26432 3.82627 1.91673C3.99846 2.45243 4.13231 3.21771 4.13231 3.63862C4.11318 5.03525 5.45248 5.09254 6.10297 3.71503C7.34655 1.05568 10.6564 0.692244 10.3312 3.21767Z"
+            fill="#FFADE3"></path>
+        </svg>
+      </span>
+    </div>
+
+    <div style="color:#ffade3">The AcroFusion team</div>
   </div>
 
   <style>
@@ -38,37 +64,57 @@ import Star from "./Star.astro";
 
       .credits {
         position: absolute;
-        top: var(--space-xs);
+        top: var(--space-s);
         font-family: var(--bricolage);
         font-weight: 400;
         font-size: 10px;
         color: var(--color-white);
       }
 
-      svg {
-        width: 120px;
+      .logo {
+        width: min(30vw, 200px);
         height: auto;
       }
 
       .star-1 {
         position: absolute;
-        top: -16px;
+        top: 0px;
         right: -16px;
-        width: 30%;
+        width: min(35%, 200px);
         height: auto;
+        color: rgba(255, 173, 227, 0.4);
+        animation: var(--animation-blink), var(--animation-float);
+        animation-duration: 5s;
+        animation-delay: 1s;
       }
       .star-2 {
         position: absolute;
-        top: 10vh;
-        right: 30%;
-        width: 20%;
+        top: 100px;
+        right: min(30%, 200px);
+        width: min(20%, 140px);
         height: auto;
+        color: rgba(255, 173, 227, 0.5);
+        animation: var(--animation-blink), var(--animation-float);
+        animation-duration: 5s;
+      }
+
+      .heart {
+        color: #ffade3;
+        svg {
+          animation: var(--animation-pulse);
+        }
       }
 
       .saluti {
         display: flex;
         flex-direction: column;
         position: relative;
+
+        font-family: var(--bricolage);
+        color: var(--color-white);
+        font-weight: 300;
+        font-size: 20px;
+
         &:before {
           content: url("/lines.svg");
           position: absolute;
@@ -77,29 +123,19 @@ import Star from "./Star.astro";
         }
 
         p {
-          font-family: var(--bricolage);
           font-weight: 800;
-          color: var(--color-white);
-          font-size: 20px;
           margin-bottom: var(--space-s);
           margin-top: var(--space-l);
         }
 
-        span {
-          font-family: var(--bricolage);
-          font-weight: 300;
-          color: var(--color-white);
-          font-size: 20px;
+        .love {
           width: 100%;
         }
-        span:nth-of-type(1):after {
-          content: url("/heart.svg");
+
+        .heart {
           padding-left: var(--space-3xs);
           position: relative;
           top: -3px;
-        }
-        span:nth-of-type(2) {
-          color: #ffade3;
         }
       }
     }
