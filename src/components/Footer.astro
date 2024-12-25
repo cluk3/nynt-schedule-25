@@ -1,6 +1,9 @@
 ---
 import Logo from "./Logo.astro";
 import Star from "./Star.astro";
+import { getImage } from "astro:assets";
+import footerImage from "@images/acrofusi-footer.png";
+const optimizedBackgroundImage = await getImage({ src: footerImage });
 ---
 
 <div class="footer">
@@ -45,7 +48,9 @@ import Star from "./Star.astro";
     <div style="color:#ffade3">The AcroFusion team</div>
   </div>
 
-  <style>
+  <style
+    define:vars={{ backgroundImage: `url("${optimizedBackgroundImage.src}")` }}
+  >
     .footer {
       display: flex;
       flex-direction: column;
@@ -56,7 +61,7 @@ import Star from "./Star.astro";
       align-items: center;
       width: 100%;
       height: 100vh;
-      background-image: url("/acrofusi-footer.png");
+      background-image: var(--backgroundImage);
       image-rendering: -webkit-optimize-contrast;
       background-position: center bottom;
       background-repeat: no-repeat;

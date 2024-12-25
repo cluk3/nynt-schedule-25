@@ -1,6 +1,10 @@
 ---
 import Star from "./Star.astro";
 import Logo from "./Logo.astro";
+import { getImage } from "astro:assets";
+
+import coverImage from "@images/cover.png";
+const optimizedBackgroundImage = await getImage({ src: coverImage });
 ---
 
 <div class="hero">
@@ -86,7 +90,9 @@ import Logo from "./Logo.astro";
   </div>
 </div>
 
-<style>
+<style
+  define:vars={{ backgroundImage: `url("${optimizedBackgroundImage.src}")` }}
+>
   @keyframes down {
     from {
       transform: translateX(-50%) translateY(0);
@@ -223,7 +229,7 @@ import Logo from "./Logo.astro";
         height: 100%;
         image-rendering: -webkit-optimize-contrast;
 
-        background-image: url("/cover.png");
+        background-image: var(--backgroundImage);
         background-size: cover;
         background-position: center bottom;
         background-repeat: no-repeat;
