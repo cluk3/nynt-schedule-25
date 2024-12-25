@@ -18,6 +18,7 @@ export default defineConfig({
         theme_color: "#ab0f29",
         orientation: "portrait",
         display_override: [
+          "standalone",
           "window-controls-overlay",
           "fullscreen",
           "minimal-ui",
@@ -168,9 +169,23 @@ export default defineConfig({
           },
           {
             src: "screenshot-2.png",
-            sizes: "782x1416",
+            sizes: "778x1320",
             type: "image/png",
             form_factor: "narrow",
+            label: "Schedule",
+          },
+          {
+            src: "screenshot-1.png",
+            sizes: "778x1320",
+            type: "image/png",
+            form_factor: "wide",
+            label: "Schedule",
+          },
+          {
+            src: "screenshot-2.png",
+            sizes: "778x1320",
+            type: "image/png",
+            form_factor: "wide",
             label: "Schedule",
           },
         ],
