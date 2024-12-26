@@ -171,7 +171,7 @@ const optimizedBackgroundImage = await getImage({ src: coverImage });
       width: 100%;
       padding: 0 var(--space-xs);
       position: relative;
-      margin-top: 30vh;
+      margin-top: 172px;
 
       .star-top {
         position: absolute;
@@ -199,7 +199,7 @@ const optimizedBackgroundImage = await getImage({ src: coverImage });
     .title-svg {
       width: calc(358 * 0.2vw);
       max-width: 720px;
-      height: calc(158 * 0.2vw);
+      height: auto;
     }
 
     h2 {
@@ -214,6 +214,10 @@ const optimizedBackgroundImage = await getImage({ src: coverImage });
     }
 
     @media (max-width: 800px) {
+      .title {
+        margin-top: 27vh;
+      }
+
       .title-svg {
         flex: 1;
         width: 100%;
