@@ -12,7 +12,7 @@ const workshops = data.filter((workshop) => workshop.teachers);
 function getLevelClass(_level: string) {
   const level = _level.toLowerCase().trim();
   switch (level) {
-    case "open Level - intermediate":
+    case "open level - intermediate":
       return "open-level";
     case "intermediate+":
       return "int-plus";
@@ -22,6 +22,8 @@ function getLevelClass(_level: string) {
       return "advanced";
     case "standing":
       return "standing";
+    case "pro":
+      return "pro";
     default:
       return "open-level";
   }
@@ -179,6 +181,16 @@ function getLevelClass(_level: string) {
       color: #2a285f;
     }
   }
+  .standing {
+    & .content,
+    & .level {
+      background: var(--color-yellow);
+    }
+    & .level {
+      color: #725a03;
+    }
+  }
+
   .standing {
     & .content,
     & .level {

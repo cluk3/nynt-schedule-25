@@ -1,8 +1,13 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import AstroPWA from "@vite-pwa/astro";
 
 export default defineConfig({
   site: "https://nynt-schedule.netlify.app/",
+  env: {
+    schema: {
+      GSCRIPT_IMPL_ID: envField.string({ context: "server", access: "secret" }),
+    },
+  },
   integrations: [
     AstroPWA({
       /* other options */

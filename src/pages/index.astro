@@ -3,26 +3,22 @@ import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
 // import { data } from "~/fake.json";
 import Workshops from "@components/Workshops.astro";
-import type { Workshop } from "~/lib";
-import { getFormattedDates } from "~/lib";
+import { getFormattedDates, ScheduleResponse } from "~/lib";
 import Navigation from "@utils/Navigation.astro";
 import Hero from "@components/Hero.astro";
 import Footer from "~/components/Footer.astro";
+import {
+  GSCRIPT_IMPL_ID
+} from 'astro:env/server'
 
 const res = await fetch(
-  "https://script.google.com/macros/s/AKfycbx9t8VT3ogEv65hmIk5W6XqBDl34hogcOlp-VtA0VTCIAfkLM5yzVEa2tGpqfeZW-uV/exec"
+  `https://script.google.com/macros/s/${GSCRIPT_IMPL_ID}/exec`
 );
+const resData = await res.json();
 
-const {
-  data,
-}: {
-  data: Record<
-    string,
-    {
-      times: Array<[string, string | Array<Workshop>]>;
-    }
-  >;
-} = await res.json();
+console.dir(resData, { depth: null });
+
+const { data } = ScheduleResponse.assert(resData);
 
 const startDate = "27-12-2025";
 const endDate = "04-01-2026";

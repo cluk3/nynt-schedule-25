@@ -37,6 +37,13 @@ This is an Astro project for the NYNT 26 Schedule, built with TypeScript, Open P
   - `@utils/` -> `src/components/utils/`
   - `@styles/` -> `src/styles/`
 - **Type Safety**: Use TypeScript interfaces for data models (e.g., `Workshop` in `src/lib.ts`).
+- **Data Validation**: Use [ArkType](https://arktype.io/docs) for runtime data validation.
+  - Schemas are defined in `src/lib.ts`.
+  - Use `type` from `arktype` to define schemas.
+  - Use `.assert()` to validate data and throw errors on failure.
+- **Testing**: Use [Vitest](https://vitest.dev/) for unit testing.
+  - Run tests with `pnpm test`.
+  - Tests are located in `src/*.test.ts`.
 - **Accessibility**:
   - Always include `SkipLink` in layouts.
   - Use semantic HTML (`<main>`, `<section>`, `<h1>`-`<h6>`).
@@ -48,6 +55,7 @@ This is an Astro project for the NYNT 26 Schedule, built with TypeScript, Open P
 - **Start Dev Server**: `pnpm dev` or `npm start`
 - **Build**: `pnpm build` (runs `astro check` first)
 - **Type Check**: `astro check`
+- **Test**: `pnpm test` (runs `vitest`)
 - **Linting**: Prettier with `prettier-plugin-astro`.
 
 ## Critical Integration Points
