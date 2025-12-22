@@ -10,8 +10,9 @@ import Hero from "@components/Hero.astro";
 import Footer from "~/components/Footer.astro";
 
 const res = await fetch(
-  "https://script.googleusercontent.com/macros/echo?user_content_key=0MsFed7ZIug5VQ4rgEjm4JHFpyFFbEgPEijcDGPzylNz_23huVUqfARB4iDQ8r6_FYBCkqfXkOTrWY_7F5Nauk2ee-q2HaZ0m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNkug743QoVrUSwdfm4U_2RAVTqZdKfWqTLdNugdvPyulcVQL2FK0Elv0shRWv0RfAJp27BVirWAYn7jyVNbbCFL6ZS5Y-HecA&lib=M22tqyZQve7LsC61Wvqq5mL0EK-iT8Fdm"
+  "https://script.google.com/macros/s/AKfycbx9t8VT3ogEv65hmIk5W6XqBDl34hogcOlp-VtA0VTCIAfkLM5yzVEa2tGpqfeZW-uV/exec"
 );
+
 const {
   data,
 }: {
@@ -23,12 +24,12 @@ const {
   >;
 } = await res.json();
 
-const startDate = "28-12-2024";
-const endDate = "05-01-2025";
+const startDate = "27-12-2025";
+const endDate = "04-01-2026";
 const formattedDates = getFormattedDates(startDate, endDate);
 ---
 
-<Layout title="NYNT Schedule 24/25">
+<Layout title="NYNT Schedule 25/26">
   <SkipLink />
   <div class="sr-only" id="start"></div>
   <Hero />
