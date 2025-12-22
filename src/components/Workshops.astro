@@ -101,6 +101,10 @@ function getLevelClass(_level: string) {
       grid-template-rows: subgrid;
       grid-row: span 3;
 
+      overflow-wrap: break-word; /* Standard way to allow breaking long words */
+      word-break: break-word; /* Fallback for older browsers */
+      hyphens: auto;
+
       padding: var(--space-xs);
       border-top-right-radius: 0;
       border-top-left-radius: 0;
@@ -181,13 +185,13 @@ function getLevelClass(_level: string) {
       color: #2a285f;
     }
   }
-  .standing {
+  .pro {
     & .content,
     & .level {
-      background: var(--color-yellow);
+      background: var(--color-pro);
     }
     & .level {
-      color: #725a03;
+      color: #79281c;
     }
   }
 
