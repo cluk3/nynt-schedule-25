@@ -1,6 +1,53 @@
 import { describe, it, expect } from "vitest";
-import { ScheduleResponse } from "./lib";
+import { getFormattedDates, ScheduleResponse } from "./lib";
 import { type } from "arktype";
+
+describe("getFormattedDates", () => {
+  it("formats a single date correctly", () => {
+    const result = getFormattedDates("28-12-2025", "28-12-2025");
+    expect(result).toEqual(["28/12 Sunday"]);
+  });
+
+  it("formats a date range correctly", () => {
+    const result = getFormattedDates("28-12-2025", "30-12-2025");
+    expect(result).toEqual(["28/12 Sunday", "29/12 Monday", "30/12 Tuesday"]);
+  });
+
+  it("handles leap year correctly", () => {
+    const result = getFormattedDates("30-12-2025", "02-01-2026");
+    expect(result).toEqual([
+      "30/12 Tuesday",
+      "31/12 Wednesday",
+      "01/01 Thursday",
+      "02/01 Friday",
+    ]);
+  });
+
+  it("handles month transition correctly", () => {
+    const result = getFormattedDates("28-02-2024", "01-03-2024");
+    expect(result).toEqual([
+      "28/02 Wednesday",
+      "29/02 Thursday",
+      "01/03 Friday",
+    ]);
+  });
+
+  it("pads single digit days and months with zeros", () => {
+    const result = getFormattedDates("01-01-2025", "03-01-2025");
+    expect(result).toEqual([
+      "01/01 Wednesday",
+      "02/01 Thursday",
+      "03/01 Friday",
+    ]);
+  });
+
+  it("handles a longer date range", () => {
+    const result = getFormattedDates("25-12-2025", "31-12-2025");
+    expect(result).toHaveLength(7);
+    expect(result[0]).toBe("25/12 Thursday");
+    expect(result[6]).toBe("31/12 Wednesday");
+  });
+});
 
 describe("ScheduleResponse", () => {
   it("validates correct data with string content", () => {
