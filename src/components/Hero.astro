@@ -8,9 +8,9 @@ import Star from "./Star.astro";
     <div class="title">
       <Star class="star-top" />
       <HeroLogo class="title-svg" />
+      <h1>SCHEDULE</h1>
       <Star class="star-bottom" />
     </div>
-    <h1>SCHEDULE</h1>
     <a href="#27" aria-label="Scroll down" class="scroll-down-circle"></a>
   </div>
 </div>
@@ -35,7 +35,7 @@ import Star from "./Star.astro";
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     overflow: clip;
     position: relative;
 
@@ -47,12 +47,81 @@ import Star from "./Star.astro";
 
     .hero-content {
       z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
     }
 
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 65%;
+      position: relative;
+
+      .star-top {
+        position: absolute;
+        top: -100px;
+        left: -36px;
+        width: 30%;
+        height: auto;
+        color: rgba(255, 173, 227, 0.6);
+        animation: var(--animation-blink);
+        animation-duration: 3s;
+      }
+      .star-bottom {
+        position: absolute;
+        bottom: -100px;
+        right: -36px;
+        width: 30%;
+        height: auto;
+        color: rgba(255, 173, 227, 0.6);
+        animation: var(--animation-blink);
+        animation-duration: 3s;
+        animation-delay: 1s;
+        transform: rotateY(180deg);
+      }
+    }
+
+    .title-svg {
+      width: calc(200 * 0.2vw);
+      max-width: 350px;
+      height: auto;
+      max-height: 480px;
+    }
+
+    h1 {
+      color: var(--color-white);
+      margin-top: 36px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 15px;
+      text-align: center;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 800px) {
+      .title-svg {
+        flex: 1;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 450px) {
+      &::before {
+        background-size: contain;
+      }
+    }
     .scroll-down-circle {
       position: absolute;
       bottom: var(--space-l);
-      opacity: 0.9;
+      opacity: 0.8;
       left: 50%;
       transform: translateX(-50%);
       width: 48px;
@@ -78,73 +147,6 @@ import Star from "./Star.astro";
 
       @media only screen and (max-width: 800px) {
         bottom: var(--space-xl);
-      }
-    }
-
-    .title {
-      display: flex;
-      width: 100%;
-      padding: 0 var(--space-xs);
-      position: relative;
-      margin-top: 172px;
-
-      .star-top {
-        position: absolute;
-        bottom: calc(100% + var(--space-2xl));
-        left: -24px;
-        width: 25%;
-        height: auto;
-        color: rgba(255, 173, 227, 0.6);
-        animation: var(--animation-blink);
-        animation-duration: 3s;
-      }
-      .star-bottom {
-        position: absolute;
-        top: calc(100% + var(--space-3xl));
-        right: -36px;
-        width: 25%;
-        height: auto;
-        color: rgba(255, 173, 227, 0.6);
-        animation: var(--animation-blink);
-        animation-duration: 3s;
-        animation-delay: 1s;
-        transform: rotateY(180deg);
-      }
-    }
-
-    .title-svg {
-      width: calc(200 * 0.2vw);
-      max-width: 350px;
-      height: auto;
-      max-height: 480px;
-    }
-
-    h1 {
-      color: var(--color-white);
-      margin-top: var(--space-l);
-      font-style: normal;
-      font-weight: 700;
-      font-size: 15px;
-      text-align: center;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 800px) {
-      .title {
-        margin-top: 27vh;
-      }
-
-      .title-svg {
-        flex: 1;
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    @media (max-width: 450px) {
-      &::before {
-        background-size: contain;
       }
     }
   }
