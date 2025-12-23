@@ -22,9 +22,12 @@ export function getFormattedDates(startDate: string, endDate: string) {
   while (current <= end) {
     // Format the current date as "dd/mm week day"
     const day = String(current.getDate()).padStart(2, "0");
-    const month = String(current.getMonth() + 1).padStart(2, "0");
-    const weekDay = current.toLocaleString("en-GB", { weekday: "long" });
-    const formattedDate = `${day}/${month} ${weekDay}`;
+    const month = current.toLocaleString("en-GB", { month: "short" });
+    const formattedDate = {
+      day,
+      month,
+      year: current.getFullYear(),
+    };
 
     formattedDates.push(formattedDate);
 

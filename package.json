@@ -16,6 +16,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.6",
     "@fontsource-variable/bricolage-grotesque": "^5.2.10",
+    "@fontsource/bbh-sans-bartle": "^5.2.1",
     "@fontsource/fira-sans-extra-condensed": "^5.2.7",
     "arktype": "^2.1.29",
     "astro": "^5.16.6",

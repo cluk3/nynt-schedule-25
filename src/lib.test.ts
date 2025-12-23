@@ -212,7 +212,6 @@ describe("ScheduleResponse", () => {
       },
     };
     const result = ScheduleResponse(dirtyData);
-    console.log(result);
     expect(result).not.toBeInstanceOf(type.errors);
     expect(result).toEqual(expectedData);
   });

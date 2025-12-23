@@ -14,6 +14,9 @@ importers:
       '@fontsource-variable/bricolage-grotesque':
         specifier: ^5.2.10
         version: 5.2.10
+      '@fontsource/bbh-sans-bartle':
+        specifier: ^5.2.1
+        version: 5.2.1
       '@fontsource/fira-sans-extra-condensed':
         specifier: ^5.2.7
         version: 5.2.7
@@ -947,6 +950,9 @@ packages:
 
   '@fontsource-variable/bricolage-grotesque@5.2.10':
     resolution: {integrity: sha512-5EDsCqgGpKVcJWE4sg9ydli+t5WM97mISYw5lla/Ev4z71FwXh1oN0YUU8xjkRW9+wBCGD9R+ntAvI8G4bUFJg==}
+
+  '@fontsource/bbh-sans-bartle@5.2.1':
+    resolution: {integrity: sha512-NCnaisIMd9K5nxFwbLeTcuCvOFcrp0o9wXDzZg8wSOHXZzV8GP1myTOcDAyy4RceT2UsoMG/67F676YPRmyNQg==}
 
   '@fontsource/fira-sans-extra-condensed@5.2.7':
     resolution: {integrity: sha512-HrYA/xqsZyNgbHyqOWuFLtSibc1w/oWdIT54au7fQJ785ysILpX9Y7GWLMmDS1D/Qj9DADMYsGM8RXWXVEAylg==}
@@ -4583,6 +4589,8 @@ snapshots:
     optional: true
 
   '@fontsource-variable/bricolage-grotesque@5.2.10': {}
+
+  '@fontsource/bbh-sans-bartle@5.2.1': {}
 
   '@fontsource/fira-sans-extra-condensed@5.2.7': {}
 

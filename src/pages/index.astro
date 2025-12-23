@@ -1,7 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import SkipLink from "@utils/SkipLink.astro";
-// import { data } from "~/fake.json";
 import Workshops from "@components/Workshops.astro";
 import { getFormattedDates, ScheduleResponse } from "~/lib";
 import Navigation from "@utils/Navigation.astro";
@@ -29,12 +28,16 @@ const formattedDates = getFormattedDates(startDate, endDate);
   <Hero />
   <main id="main">
     {
-      formattedDates.map((date) => {
-        const day = date.split("/")[0];
+      formattedDates.map(({ day, month, year }) => {
         const schedule = data[day];
         return (
           <section class="schedule" id={day}>
-            <h2 class="schedule-heading">{date}</h2>
+            <div class="schedule-heading">
+              <p class="heading-day">{day}</p>
+              <p class="heading-month-year">
+                {month} {year}
+              </p>
+            </div>
             <div class="schedule-content">
               {schedule.times.map(([time, label]) => {
                 const isWorkshop = typeof label !== "string";
@@ -87,18 +90,31 @@ const formattedDates = getFormattedDates(startDate, endDate);
   }
 
   .schedule {
-    padding: var(--space-l) var(--space-xs);
+    padding: var(--space-s) var(--space-xs);
     max-width: 900px;
     margin: 0 auto;
   }
 
   .schedule-heading {
-    font-family: var(--bricolage);
+    font-family: var(--bbh-sans-bartle);
     font-style: normal;
     font-weight: 800;
-    font-size: 24px;
     text-align: center;
     color: var(--color-red-900);
+  }
+
+  .heading-day {
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0;
+    font-family: inherit;
+  }
+
+  .heading-month-year {
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 2px;
+    font-family: inherit;
   }
 
   .schedule-content {
@@ -110,15 +126,14 @@ const formattedDates = getFormattedDates(startDate, endDate);
 
   .workshop-time,
   .time {
-    color: var(--color-neutral-dark);
+    color: var(--color-black);
     font-family: var(--fira);
     font-weight: 600;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .workshop-time {
     padding: 6px 10px;
-    padding-bottom: 0;
   }
 
   .round {
@@ -126,12 +141,11 @@ const formattedDates = getFormattedDates(startDate, endDate);
     flex-direction: column;
     align-items: baseline;
 
-    padding: 6px 10px;
-    border-radius: 6px;
+    padding: 10px;
     background: var(--color-neutral-light);
 
     .label {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 500;
       font-family: var(--fira);
     }
@@ -172,17 +186,23 @@ const formattedDates = getFormattedDates(startDate, endDate);
 
 <script is:inline>
   window.addEventListener("DOMContentLoaded", () => {
+    const menuElements = document.querySelectorAll(".nav-day");
+    const sections = new Map();
+    let latestMostVisibleSection = null;
+
+    const targetDay = new URLSearchParams(window.location.search).get("day");
+
     const today = new Date();
     const dayOfMonth = today.getDate();
-    const month = today.getMonth(); // 0-indexed: 11 = December, 0 = January
+    const month = today.getMonth();
 
     // Scroll to today's date if within event range (Dec 27 - Jan 4)
     const isInEventRange =
       (month === 11 && dayOfMonth >= 27) || (month === 0 && dayOfMonth <= 4);
 
-    if (isInEventRange) {
+    if (targetDay || isInEventRange) {
       const dayElement = document.getElementById(
-        String(dayOfMonth).padStart(2, "0")
+        String(targetDay || dayOfMonth).padStart(2, "0")
       );
       if (dayElement) {
         dayElement.scrollIntoView({
@@ -192,75 +212,49 @@ const formattedDates = getFormattedDates(startDate, endDate);
       }
     }
 
-    const menuElements = document.querySelectorAll(".nav-day");
-    let isUpdatingMenu = false;
-
-    // Observer for hero and footer to hide nav highlights
-    const heroFooterObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-            // Remove all active classes when hero or footer is visible
-            menuElements.forEach((el) => el.classList.remove("active"));
-          }
-        });
-      },
-      {
-        threshold: [0, 0.3, 0.5],
-      }
-    );
-
-    // Observe hero and footer
-    const hero = document.querySelector(".hero");
-    const footer = document.querySelector(".footer");
-    if (hero) heroFooterObserver.observe(hero);
-    if (footer) heroFooterObserver.observe(footer);
+    const hero = document.getElementById("hero");
+    const footer = document.getElementById("footer");
 
     // Observer for schedule sections
     const observer = new IntersectionObserver(
       (entries) => {
-        // Find the most visible section
-        let mostVisible = null;
-        let maxRatio = 0;
+        entries.forEach((entry, index) => {
+          sections.set(entry.target.id, entry.intersectionRatio);
+        });
 
-        entries.forEach((entry) => {
-          if (entry.intersectionRatio > maxRatio) {
-            maxRatio = entry.intersectionRatio;
-            mostVisible = entry;
+        // Determine the most visible section
+        let mostVisible = null;
+        sections.forEach((ratio, id) => {
+          if (!mostVisible || ratio > mostVisible.intersectionRatio) {
+            const element = document.getElementById(id);
+            mostVisible = { id, intersectionRatio: ratio };
           }
         });
 
-        // Only update if we have a clearly visible section
         if (
           mostVisible &&
-          mostVisible.intersectionRatio > 0.2 &&
-          !isUpdatingMenu
+          mostVisible.intersectionRatio > 0.4 &&
+          latestMostVisibleSection !== mostVisible.id
         ) {
-          const id = mostVisible.target.getAttribute("id");
-          const menuElement = document.getElementById(`menu-${id}`);
+          latestMostVisibleSection = mostVisible.id;
 
-          if (menuElement) {
-            isUpdatingMenu = true;
+          menuElements.forEach((el) => el.classList.remove("active"));
 
-            // Update active states
-            menuElements.forEach((el) => el.classList.remove("active"));
-            menuElement.classList.add("active");
-
-            // Reset flag after scroll completes
-            setTimeout(() => {
-              isUpdatingMenu = false;
-            }, 100);
-          }
+          if (["hero", "footer"].includes(mostVisible.id)) return;
+          const menuElement = document.getElementById(`menu-${mostVisible.id}`);
+          if (!menuElement) return;
+          menuElement.classList.add("active");
         }
       },
       {
-        threshold: [0, 0.2, 0.5, 0.75, 1],
+        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1],
       }
     );
 
-    // Track all sections that have an `id` applied
     document.querySelectorAll("section.schedule").forEach((section) => {
       observer.observe(section);
     });
+    if (hero) observer.observe(hero);
+    if (footer) observer.observe(footer);
   });
 </script>

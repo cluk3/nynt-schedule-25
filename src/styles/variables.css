@@ -2,7 +2,7 @@
   color-scheme: light;
 
   /* Color */
-  --color-black: #0c0e14;
+  --color-black: #000;
   --color-white: #fff;
   --color-neutral-light: #f5f5f5;
   --color-neutral-dark: #636363;
@@ -35,4 +35,5 @@
 
   --fira: "Fira Sans Extra Condensed", sans-serif;
   --bricolage: "Bricolage Grotesque Variable", sans-serif;
+  --bbh-sans-bartle: "BBH Sans Bartle", sans-serif;
 }

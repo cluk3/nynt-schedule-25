@@ -16,9 +16,9 @@ export default defineConfig({
       scope: "/",
       registerType: "autoUpdate",
       manifest: {
-        name: "NYNT 25 Schedule",
-        short_name: "NYNT25",
-        description: "The schedule for NYNT 25",
+        name: "NYNT 26 Schedule",
+        short_name: "NYNT26",
+        description: "The schedule for NYNT 26",
         theme_color: "#ab0f29",
         orientation: "portrait",
         display_override: [
