@@ -8,16 +8,20 @@ const optimizedBackgroundImage = await getImage({ src: footerImage });
 
 <div class="footer" id="footer">
   <div class="credits">
-    <a
-      href="https://instagram.com/lisalorenzon_"
-      target="_blank"
-      rel="noopener noreferrer">design: Lisa Lorenzon</a
-    >
-    <a
-      href="https://instagram.com/acro.with.luca"
-      target="_blank"
-      rel="noopener noreferrer">dev: Luca Campli</a
-    >
+    <p>
+      design: <a
+        href="https://instagram.com/lisalorenzon_"
+        target="_blank"
+        rel="noopener noreferrer">Lisa Lorenzon</a
+      >
+    </p>
+    <p>
+      dev: <a
+        href="https://instagram.com/acro.with.luca"
+        target="_blank"
+        rel="noopener noreferrer">Luca Campli</a
+      >
+    </p>
   </div>
   <Logo />
   <div class="saluti">
@@ -70,13 +74,20 @@ const optimizedBackgroundImage = await getImage({ src: footerImage });
 
       .credits {
         position: absolute;
-        top: var(--space-m);
-        & a {
+        top: var(--space-xl);
+        display: grid;
+        gap: 4px;
+        & p {
           font-family: var(--bricolage);
           font-weight: 400;
-          font-size: 10px;
+          font-size: 14px;
           color: var(--color-white);
           display: block;
+          & a {
+            text-decoration: underline;
+            font-size: 14px;
+            color: var(--color-pink);
+          }
         }
       }
 
