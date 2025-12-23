@@ -173,36 +173,89 @@ const formattedDates = getFormattedDates(startDate, endDate);
 <script is:inline>
   window.addEventListener("DOMContentLoaded", () => {
     const today = new Date();
-    let dayOfMonth = today.getDate();
-    if (dayOfMonth < 6 || dayOfMonth > 27) {
-      document
-        .getElementById(String(dayOfMonth).padStart(2, "0"))
-        .scrollIntoView({
+    const dayOfMonth = today.getDate();
+    const month = today.getMonth(); // 0-indexed: 11 = December, 0 = January
+
+    // Scroll to today's date if within event range (Dec 27 - Jan 4)
+    const isInEventRange =
+      (month === 11 && dayOfMonth >= 27) || (month === 0 && dayOfMonth <= 4);
+
+    if (isInEventRange) {
+      const dayElement = document.getElementById(
+        String(dayOfMonth).padStart(2, "0")
+      );
+      if (dayElement) {
+        dayElement.scrollIntoView({
           behavior: "smooth",
+          block: "start",
         });
+      }
     }
 
     const menuElements = document.querySelectorAll(".nav-day");
+    let isUpdatingMenu = false;
 
-    const observer = new IntersectionObserver(
+    // Observer for hero and footer to hide nav highlights
+    const heroFooterObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const id = entry.target.getAttribute("id");
-          const menuElement = document.getElementById(`menu-${id}`);
-          if (entry.isIntersecting) {
-            menuElements.forEach((menuElement) => {
-              menuElement.classList.remove("active");
-            });
-            menuElement.classList.add("active");
-            menuElement.scrollIntoView({
-              behavior: "smooth",
-            });
-          } else {
-            menuElement.classList.remove("active");
+          if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+            // Remove all active classes when hero or footer is visible
+            menuElements.forEach((el) => el.classList.remove("active"));
           }
         });
       },
-      { threshold: [0.2, 1] }
+      {
+        threshold: [0, 0.3, 0.5],
+      }
+    );
+
+    // Observe hero and footer
+    const hero = document.querySelector(".hero");
+    const footer = document.querySelector(".footer");
+    if (hero) heroFooterObserver.observe(hero);
+    if (footer) heroFooterObserver.observe(footer);
+
+    // Observer for schedule sections
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the most visible section
+        let mostVisible = null;
+        let maxRatio = 0;
+
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            mostVisible = entry;
+          }
+        });
+
+        // Only update if we have a clearly visible section
+        if (
+          mostVisible &&
+          mostVisible.intersectionRatio > 0.2 &&
+          !isUpdatingMenu
+        ) {
+          const id = mostVisible.target.getAttribute("id");
+          const menuElement = document.getElementById(`menu-${id}`);
+
+          if (menuElement) {
+            isUpdatingMenu = true;
+
+            // Update active states
+            menuElements.forEach((el) => el.classList.remove("active"));
+            menuElement.classList.add("active");
+
+            // Reset flag after scroll completes
+            setTimeout(() => {
+              isUpdatingMenu = false;
+            }, 100);
+          }
+        }
+      },
+      {
+        threshold: [0, 0.2, 0.5, 0.75, 1],
+      }
     );
 
     // Track all sections that have an `id` applied
