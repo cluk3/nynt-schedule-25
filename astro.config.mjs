@@ -8,9 +8,6 @@ export default defineConfig({
       GSCRIPT_IMPL_ID: envField.string({ context: "server", access: "secret" }),
     },
   },
-  server: {
-    allowedHosts: true,
-  },
   integrations: [
     AstroPWA({
       /* other options */
