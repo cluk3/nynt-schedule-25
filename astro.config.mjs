@@ -1,8 +1,13 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import AstroPWA from "@vite-pwa/astro";
 
 export default defineConfig({
   site: "https://nynt-schedule.netlify.app/",
+  env: {
+    schema: {
+      GSCRIPT_IMPL_ID: envField.string({ context: "server", access: "secret" }),
+    },
+  },
   integrations: [
     AstroPWA({
       /* other options */
@@ -11,9 +16,9 @@ export default defineConfig({
       scope: "/",
       registerType: "autoUpdate",
       manifest: {
-        name: "NYNT 25 Schedule",
-        short_name: "NYNT25",
-        description: "The schedule for NYNT 25",
+        name: "NYNT 26 Schedule",
+        short_name: "NYNT26",
+        description: "The schedule for NYNT 26",
         theme_color: "#ab0f29",
         orientation: "portrait",
         display_override: [

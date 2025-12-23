@@ -12,7 +12,9 @@ const workshops = data.filter((workshop) => workshop.teachers);
 function getLevelClass(_level: string) {
   const level = _level.toLowerCase().trim();
   switch (level) {
-    case "open Level - intermediate":
+    case "open level":
+      return "open-level";
+    case "open level - intermediate":
       return "open-level";
     case "intermediate+":
       return "int-plus";
@@ -22,6 +24,8 @@ function getLevelClass(_level: string) {
       return "advanced";
     case "standing":
       return "standing";
+    case "pro":
+      return "pro";
     default:
       return "open-level";
   }
@@ -56,7 +60,7 @@ function getLevelClass(_level: string) {
     display: grid;
     flex: 1;
     gap: var(--space-4xs);
-    grid-template-columns: repeat(var(--workshops-columns), 160px);
+    grid-template-columns: repeat(var(--workshops-columns), 178px);
     grid-template-rows: repeat(4, auto);
     overflow: auto;
     scrollbar-width: none;
@@ -75,7 +79,6 @@ function getLevelClass(_level: string) {
     .content,
     .level {
       padding: var(--space-xs);
-      border-radius: 6px;
       width: 100%;
     }
 
@@ -85,13 +88,11 @@ function getLevelClass(_level: string) {
       align-items: center;
       text-align: center;
       text-transform: uppercase;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
 
       font-family: var(--fira);
       font-weight: 500;
-      font-size: 13px;
-      line-height: 13px;
+      font-size: 15px;
+      line-height: 18px;
     }
 
     .content {
@@ -99,35 +100,41 @@ function getLevelClass(_level: string) {
       grid-template-rows: subgrid;
       grid-row: span 3;
 
+      overflow-wrap: break-word; /* Standard way to allow breaking long words */
+      word-break: break-word; /* Fallback for older browsers */
+      hyphens: auto;
+
       padding: var(--space-xs);
       border-top-right-radius: 0;
       border-top-left-radius: 0;
-      gap: 2px;
+      gap: 5px;
 
       .teachers {
         font-family: var(--fira);
         font-weight: 400;
-        font-size: 15px;
+        font-size: 18px;
         text-transform: uppercase;
-        line-height: 16.5px;
+        line-height: 18px;
       }
 
       .prereqs-container {
         padding-top: var(--space-2xs);
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
       }
 
       .prereqs-label {
         font-family: var(--fira);
         font-weight: 400;
-        font-size: 12px;
-        font-style: italic;
+        font-size: 14px;
       }
 
       .prereqs {
         font-family: var(--fira);
         font-weight: 400;
-        font-size: 13px;
-        line-height: 13px;
+        font-size: 14px;
+        line-height: 14px;
         font-style: italic;
         text-transform: uppercase;
       }
@@ -179,6 +186,16 @@ function getLevelClass(_level: string) {
       color: #2a285f;
     }
   }
+  .pro {
+    & .content,
+    & .level {
+      background: var(--color-pro);
+    }
+    & .level {
+      color: #79281c;
+    }
+  }
+
   .standing {
     & .content,
     & .level {

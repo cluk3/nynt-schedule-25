@@ -2,6 +2,7 @@
 import "@styles/reset.css";
 import "@styles/global.css";
 import "@styles/variables.css";
+import "@fontsource/bbh-sans-bartle/400.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "@fontsource/fira-sans-extra-condensed/400.css";
 import "@fontsource/fira-sans-extra-condensed/500.css";
@@ -20,17 +21,17 @@ const { title } = Astro.props;
 
 const metaData = {
   keywords: "acroyoga, nynt, schedule, new year new trick, acro fusion",
-  description: "The schedule for NYNT 24/25 acroyoga event",
+  description: "The schedule for New Year New Trick 25/26 acroyoga event",
   imageType: "image/png",
   imageWidth: "587",
   imageHeight: "414",
   type: "website",
-  siteName: "NYNT Schedule 24/25",
+  siteName: "NYNT Schedule 25/26",
   twitterCard: "summary_large_image",
 };
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL("/seo.png", Astro.url);
+const socialImageURL = new URL("/seo.jpg", Astro.url);
 ---
 
 <!doctype html>
@@ -39,6 +40,10 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
     <meta name="keywords" content={metaData.keywords} />
     <meta name="description" content={metaData.description} />
     <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -69,6 +74,24 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta name="twitter:description" content={metaData.description} />
     <meta name="twitter:image" content={socialImageURL} />
     <meta name="twitter:image:alt" content={title} />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "New Year New Trick 25/26",
+        "description": "The schedule for New Year New Trick 25/26 acroyoga event",
+        "startDate": "2025-12-27",
+        "endDate": "2026-01-04",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "organizer": {
+          "@type": "Organization",
+          "name": "NYNT",
+          "url": "https://nynt-schedule.netlify.app/"
+        },
+        "url": "https://nynt-schedule.netlify.app/"
+      }
+    </script>
     <script src="/src/pwa.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
