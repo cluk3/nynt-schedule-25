@@ -2,7 +2,7 @@
 import Logo from "./Logo.astro";
 import Star from "./Star.astro";
 import { getImage } from "astro:assets";
-import footerImage from "@images/acrofusi-footer.png";
+import footerImage from "@images/footer.png";
 const optimizedBackgroundImage = await getImage({ src: footerImage });
 ---
 
@@ -56,6 +56,7 @@ const optimizedBackgroundImage = await getImage({ src: footerImage });
       background-position: center bottom;
       background-repeat: no-repeat;
       background-color: var(--color-red-900);
+      background-size: 100vw;
 
       .credits {
         position: absolute;
