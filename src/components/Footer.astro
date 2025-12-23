@@ -2,17 +2,23 @@
 import Logo from "./Logo.astro";
 import Star from "./Star.astro";
 import { getImage } from "astro:assets";
-import footerImage from "@images/acrofusi-footer.png";
+import footerImage from "@images/footer.png";
 const optimizedBackgroundImage = await getImage({ src: footerImage });
 ---
 
 <div class="footer" id="footer">
   <div class="credits">
-    <p>design: Lisa Lorenzon</p>
-    <p>dev: Luca Campli</p>
+    <a
+      href="https://instagram.com/lisalorenzon_"
+      target="_blank"
+      rel="noopener noreferrer">design: Lisa Lorenzon</a
+    >
+    <a
+      href="https://instagram.com/acro.with.luca"
+      target="_blank"
+      rel="noopener noreferrer">dev: Luca Campli</a
+    >
   </div>
-  <Star class="star-1" />
-  <Star class="star-2" />
   <Logo />
   <div class="saluti">
     <p style="font-size: 20px;">See you next year!</p>
@@ -56,43 +62,27 @@ const optimizedBackgroundImage = await getImage({ src: footerImage });
       background-position: center bottom;
       background-repeat: no-repeat;
       background-color: var(--color-red-900);
+      background-size: 400px;
+
+      @media only screen and (max-width: 400px) {
+        background-size: 100vw;
+      }
 
       .credits {
         position: absolute;
         top: var(--space-m);
-        & p {
+        & a {
           font-family: var(--bricolage);
           font-weight: 400;
           font-size: 10px;
           color: var(--color-white);
+          display: block;
         }
       }
 
       .logo {
         width: min(30vw, 200px);
         height: auto;
-      }
-
-      .star-1 {
-        position: absolute;
-        top: 0px;
-        right: -16px;
-        width: min(30%, 180px);
-        height: auto;
-        color: rgba(255, 173, 227, 0.4);
-        animation: var(--animation-blink), var(--animation-float);
-        animation-duration: 5s;
-        animation-delay: 1s;
-      }
-      .star-2 {
-        position: absolute;
-        top: 100px;
-        right: min(20%, 200px);
-        width: min(20%, 140px);
-        height: auto;
-        color: rgba(255, 173, 227, 0.5);
-        animation: var(--animation-blink), var(--animation-float);
-        animation-duration: 5s;
       }
 
       .heart {
