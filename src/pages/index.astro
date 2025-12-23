@@ -57,10 +57,6 @@ const formattedDates = getFormattedDates(startDate, endDate);
                       round: true,
                       accent:
                         label.includes("Talent") || label.includes("New Year"),
-                      meal:
-                        label.includes("Lunch") ||
-                        label.includes("Dinner") ||
-                        label.includes("Breakfast"),
                     }}
                   >
                     <p class="time">{time.split("-").join(" - ")}</p>
@@ -154,10 +150,6 @@ const formattedDates = getFormattedDates(startDate, endDate);
       background: var(--color-white);
       padding: 0 var(--space-s);
     }
-  }
-
-  .meal {
-    background: var(--color-red-100);
   }
 
   .accent {

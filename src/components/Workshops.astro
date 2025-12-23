@@ -60,7 +60,10 @@ function getLevelClass(_level: string) {
     display: grid;
     flex: 1;
     gap: var(--space-4xs);
-    grid-template-columns: repeat(var(--workshops-columns), 160px);
+    grid-template-columns: repeat(
+      var(--workshops-columns),
+      clamp(160px, calc(100% / 2), 200px)
+    );
     grid-template-rows: repeat(4, auto);
     overflow: auto;
     scrollbar-width: none;
