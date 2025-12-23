@@ -11,7 +11,7 @@ This project provides an accessible, offline-capable schedule viewer for the NYN
 - **Framework**: [Astro 5.x](https://astro.build/) with TypeScript
 - **Styling**: [Open Props](https://open-props.style/) for design tokens
 - **PWA**: [@vite-pwa/astro](https://github.com/vite-pwa/astro) for Progressive Web App features
-- **Typography**: Custom fonts via Fontsource (Bricolage Grotesque & Fira Sans Extra Condensed)
+- **Typography**: Custom fonts via Fontsource (Bricolage Grotesque, BBH Sans Bartle, Fira Sans Extra Condensed)
 - **Data Validation**: [ArkType](https://arktype.io/) for runtime type checking
 - **Testing**: [Vitest](https://vitest.dev/)
 - **Deployment**: [Netlify](https://netlify.com/)
