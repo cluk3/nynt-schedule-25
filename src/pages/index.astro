@@ -210,7 +210,7 @@ const formattedDates = getFormattedDates(startDate, endDate);
     // Observer for schedule sections
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           sections.set(entry.target.id, entry.intersectionRatio);
         });
 
@@ -218,7 +218,6 @@ const formattedDates = getFormattedDates(startDate, endDate);
         let mostVisible = null;
         sections.forEach((ratio, id) => {
           if (!mostVisible || ratio > mostVisible.intersectionRatio) {
-            const element = document.getElementById(id);
             mostVisible = { id, intersectionRatio: ratio };
           }
         });

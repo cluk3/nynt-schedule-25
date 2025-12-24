@@ -74,7 +74,7 @@ const socialImageURL = new URL("/seo.jpg", Astro.url);
     <meta name="twitter:description" content={metaData.description} />
     <meta name="twitter:image" content={socialImageURL} />
     <meta name="twitter:image:alt" content={title} />
-    <script type="application/ld+json">
+    <script is:inline type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Event",
@@ -95,6 +95,7 @@ const socialImageURL = new URL("/seo.jpg", Astro.url);
     <script src="/src/pwa.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
     <script
+      is:inline
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="5641c9d2-d78b-4191-ba57-8ee654fd8da2"></script>
