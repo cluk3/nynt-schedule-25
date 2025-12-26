@@ -29,7 +29,7 @@ const formattedDates = getFormattedDates(startDate, endDate);
   <main id="main">
     {
       formattedDates.map(({ day, month, year }) => {
-        const schedule = data[day];
+        const schedule = data[day as keyof typeof data];
         return (
           <section class="schedule" id={day}>
             <div class="schedule-heading">
@@ -224,7 +224,7 @@ const formattedDates = getFormattedDates(startDate, endDate);
 
         if (
           mostVisible &&
-          mostVisible.intersectionRatio > 0.4 &&
+          mostVisible.intersectionRatio > 0 &&
           latestMostVisibleSection !== mostVisible.id
         ) {
           latestMostVisibleSection = mostVisible.id;
@@ -238,7 +238,7 @@ const formattedDates = getFormattedDates(startDate, endDate);
         }
       },
       {
-        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1],
+        threshold: [0, 0.1, 0.2, 0.4, 0.6, 0.8, 1],
       }
     );
 
