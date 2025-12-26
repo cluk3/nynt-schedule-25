@@ -37,7 +37,7 @@ export function getFormattedDates(startDate: string, endDate: string) {
 
   return formattedDates;
 }
-const trimBetween = (s: string) => s.replace(/\s+/g, " ").trim();
+const trimBetween = (s: string) => s.replaceAll(/\s+/g, " ").trim();
 const nonEmptyTrimmedString = type("string").pipe(trimBetween).to("string > 0");
 export const Workshop = type({
   name: nonEmptyTrimmedString,
@@ -50,15 +50,23 @@ export type Workshop = typeof Workshop.infer;
 
 export const TimeSlot = type([
   nonEmptyTrimmedString,
-  type(nonEmptyTrimmedString).or(Workshop.array()),
+  type(nonEmptyTrimmedString).or(Workshop.array().atLeastLength(1)),
 ]);
 
 export const DaySchedule = type({
-  times: TimeSlot.array(),
+  times: TimeSlot.array().atLeastLength(1),
 });
 
 export const ScheduleResponse = type({
   data: {
-    "[string]": DaySchedule,
+    "27": DaySchedule,
+    "28": DaySchedule,
+    "29": DaySchedule,
+    "30": DaySchedule,
+    "31": DaySchedule,
+    "01": DaySchedule,
+    "02": DaySchedule,
+    "03": DaySchedule,
+    "04": DaySchedule,
   },
 });
