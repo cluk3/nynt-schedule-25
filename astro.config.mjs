@@ -8,6 +8,11 @@ export default defineConfig({
       GSCRIPT_IMPL_ID: envField.string({ context: "server", access: "secret" }),
     },
   },
+  vite: {
+    css: {
+      transformer: "lightningcss",
+    },
+  },
   integrations: [
     AstroPWA({
       /* other options */
@@ -196,6 +201,7 @@ export default defineConfig({
       },
       workbox: {
         navigateFallback: "/",
+        globPatterns: ["**/*.{css,js,html,svg,png,ico,txt,woff2}"],
       },
       devOptions: {
         enabled: true,
