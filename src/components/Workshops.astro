@@ -65,7 +65,8 @@ function getLevelClass(_level: string) {
       clamp(160px, calc(100% / 2), 200px)
     );
     grid-template-rows: auto auto minmax(60px, auto) auto;
-    overflow: auto;
+    overflow-x: scroll;
+    overflow-y: visible;
     scrollbar-width: none;
     margin: 0 calc(0px - var(--space-xs));
     padding: var(--space-3xs) var(--space-xs);
@@ -159,10 +160,6 @@ function getLevelClass(_level: string) {
       .content {
         grid-template-rows: auto minmax(60px, auto) auto;
       }
-    }
-    .workshops {
-      overflow-x: scroll;
-      overflow-y: visible;
     }
   }
 
