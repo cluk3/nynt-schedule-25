@@ -152,6 +152,16 @@ function getLevelClass(_level: string) {
     }
   }
 
+  @supports not (grid-template-rows: subgrid) {
+    .workshop {
+      grid-template-rows: auto auto minmax(60px, auto) auto;
+
+      .content {
+        grid-template-rows: auto minmax(60px, auto) auto;
+      }
+    }
+  }
+
   .open-level {
     & .content,
     & .level {
